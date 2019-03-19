@@ -13,12 +13,13 @@ function submitForm() {
   let zero_len = 0
   let invalid_entry = []
   // check for empty fields
-  for(let i = 0; i < length_arr.length; i++){
-    if (length_arr[i] === 0){
-      zero_len = 1
-      invalid_entry.push(i)
-    }
-  }
+//  for(let i = 0; i < length_arr.length; i++){
+//    if (length_arr[i] === 0){
+//      zero_len = 1
+//      invalid_entry.push(i)
+//    }
+//  }
+  formCheck(length_arr, zero_len, invalid_entry)
 
   validEmail = email.includes("@") && (email.length > 2)
 
@@ -36,6 +37,16 @@ function submitForm() {
   }
 
 
+}
+
+let formCheck = (a, zeroLength, entry) => {
+    
+    for (let i = 0; i < a.length; i++){
+        if (a[i] === 0) {
+            zeroLength = 1
+            entry.push(i)
+        }
+    }
 }
 
 let contact = document.getElementById("contact-submit")
