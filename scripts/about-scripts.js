@@ -1,8 +1,11 @@
+// By Johnny Choi and Sammy Hecht
+// scripts for the about page
 
 
-
+// validate input on the contact form
 function submitForm() {
 
+  // get input
   let first = document.getElementById("form_name").value
   let last = document.getElementById("form_lastname").value
   let email = document.getElementById("form_email").value
@@ -19,10 +22,11 @@ function submitForm() {
       invalid_entry.push(i)
     }
   }
-  
 
+  // check for valid email
   validEmail = email.includes("@") && (email.length > 2)
 
+  // display error messages
   if (validEmail === false){
     document.getElementById("error").innerHTML = "Enter a valid email"
   }
@@ -40,13 +44,14 @@ function submitForm() {
 }
 
 // On mobile, create one column
-function resizeAbout(x) {
-  if (x.matches) { // If media query matches
+function resizeAbout(size) {
+  if (size.matches) {
     let dev1 = document.getElementById("developer")
     let dev2 = document.getElementById("developer2")
 
     let grid = document.getElementById("resp-row")
 
+    // move the element under its predecessor
     if (grid !== null){
       grid.appendChild(dev2)
     }
@@ -55,12 +60,14 @@ function resizeAbout(x) {
     let dev2 = document.getElementById("developer2")
     let grid = document.getElementById("dev-grid")
 
+    // otherwise put them next to each other
     if (grid !== null) {
       grid.appendChild(dev2)
     }
   }
 }
 
+// add listeners
 var mob = window.matchMedia("(max-width: 768px)")
 resizeAbout(mob)
 mob.addListener(resizeAbout)
