@@ -160,11 +160,126 @@
             <label class="sr-only" for="pwd" >Password:</label>
             <input type="password" class="form-control" id="pwd" placeholder="Password">
           </div>
-          <!--
-          <div class="form-group">
-            <label><input type="checkbox"> Remember Me</label>
-          </div>
+
+
           <button type="button" class="btn btn-sm btn-primary login-button" id="login-submit">Submit</button>
 
+          </form>
+          <div>
+              <p id="login-error" style="color: red;"></p>
+          </div>
 
-</html>
+        </nav>
+
+      </header>
+
+      <!-- 9. let's add jumbotron header
+          Bootstrap jumbotron header is one big, attention-grabbing header
+          (that people view it as "modern" but we may view it as "space-wasting")
+          To add a jumbotron header, as usual, bootstrap requires it to be in a container
+          (we'll comment out / remove the "Hello world!" and add the header)
+      -->
+      <!-- <h1>Hello world!</h1> -->
+      <div class="container text-center">
+          <div class="row text-center">
+              <div class="col-md-12">
+                  <div class="dropdown text-center">
+                      <button class="btn btn-default dropdown-toggle text-center" href="#" type="button" data-toggle="dropdown">Rating
+                      <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <input class="form-control" id="myInput" type="text">
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">CSS</a></li>
+                            <li><a href="#">JavaScript</a></li>
+                            <li><a href="#">jQuery</a></li>
+                            <li><a href="#">Bootstrap</a></li>
+                            <li><a href="#">Angular</a></li>
+                        </ul>
+                      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Genre
+                      <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Comedy</a></li>
+                          <li><a href="#">Romance</a></li>
+                        </ul>
+                      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Year
+                      <span class="caret"></span></button>
+                </div>
+            </div>
+          </div>
+      </div>
+
+          <!-- 10. Let's add a button -->
+      <div class="movie">
+        <img src="../images/blank-movie.jpg" id="movie-pic">
+        <p style="text-align: center;" id="movie-desc"></p>
+      </div>
+
+      <div class="container">
+          <div class="col-lg-12 text-center">
+
+            <a class="btn btn-danger btn-lg" href="#" role="button" id="gen">Generate</a>
+            <p></p>
+          </div>
+      </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+      <!-- <script src="js/bootstrap.min.js"></script> if you downloaded bootstrap to your computer -->
+
+
+
+
+
+
+      <!-- Footer -->
+      <footer class="page-footer font-small indigo">
+
+      <!-- Footer Links -->
+          <div class="container">
+
+                <!-- Grid row-->
+                <div class="row text-center d-flex justify-content-center">
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                    <h6 class="text-uppercase">
+                      <a href="../views/sample.html">Main</a>
+                    </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                    <h6 class="text-uppercase">
+                      <a href="../views/recently-released.html">Recently Released</a>
+                    </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                    <h6 class="text-uppercase">
+                      <a href="../views/about.html">About</a>
+                    </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                    <h6 class="text-uppercase">
+                      <a href="#!">User</a>
+                    </h6>
+                  </div>
+                  <!-- Grid column -->
+
+              </div>
+        </div>
+
+    </footer>
+
+      <script src="../scripts/login-script.js"></script>
+    </body>
+
+
+
+  </html>
