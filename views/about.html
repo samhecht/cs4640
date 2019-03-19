@@ -85,7 +85,7 @@
       -->
 
       <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-        <a class="navbar-brand" href="./sample.html">Random Movie Generator</a>
+        <a class="navbar-brand" href="#">Random Movie Generator</a>
 
            <!-- 5. bootstrap requires a containing element to wrap site contents.
            There are two container classes to choose from (based on the above css bootstrap):
@@ -160,8 +160,20 @@
             <label class="sr-only" for="pwd" >Password:</label>
             <input type="password" class="form-control" id="pwd" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+          <!--
+          <div class="form-group">
+            <label><input type="checkbox"> Remember Me</label>
+          </div>
+<<<<<<< HEAD
+          <button type="button" class="btn btn-sm btn-primary login-button" id="login-submit">Submit</button>
+=======
+          -->
+          <button type="button" class="btn btn-sm btn-primary login-button" id="login-submit">Submit</button>
         </form>
+        <div>
+            <p id="login-error" style="color: red;"></p>
+        </div>
+
       </nav>
 
     </header>

@@ -54,3 +54,7 @@ body {
 #error {
   padding-left: 10%;
 }
+#login-error {
+    text-align: center;
+    padding: 2px 2px 2px 2px;
+}
