@@ -39,6 +39,32 @@ for(let i = 0; i < length_arr.length; i++){
 
 }
 
+// On mobile, create one column
+function resizeAbout(x) {
+  if (x.matches) { // If media query matches
+    let dev1 = document.getElementById("developer")
+    let dev2 = document.getElementById("developer2")
+
+    let grid = document.getElementById("resp-row")
+
+    if (grid !== null){
+      grid.appendChild(dev2)
+    }
+
+  } else {
+    let dev2 = document.getElementById("developer2")
+    let grid = document.getElementById("dev-grid")
+
+    if (grid !== null) {
+      grid.appendChild(dev2)
+    }
+  }
+}
+
+var mob = window.matchMedia("(max-width: 768px)")
+resizeAbout(mob) // Call listener function at run time
+mob.addListener(resizeAbout) // Attach listener function on state changes
+
 
 
 let contact = document.getElementById("contact-submit")

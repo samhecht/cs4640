@@ -1,3 +1,16 @@
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  #developer {
+    width: 60%;
+    display: block;
+
+  }
+  #developer2 {
+    width: 60%;
+    display: block;
+  }
+}
+
 html, body {
     height: 100%;
 }
@@ -41,6 +54,12 @@ body {
 
 
 #developer img {
+  width: 60%;
+  height: auto;
+  text-align: center;
+  display: inline-block;
+}
+#developer2 img {
   width: 60%;
   height: auto;
   text-align: center;
