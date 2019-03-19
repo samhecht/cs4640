@@ -34,6 +34,13 @@ body {
 .login-button {
     padding: 2px 2px 2px 2px;
 }
+
+.login-button:hover {
+    background-color: grey;
+}
+.btn-send:hover {
+    background-color: grey;
+}
 .page-footer {
 /*    position: absolute;*/
     bottom: 0;
