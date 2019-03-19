@@ -22,9 +22,8 @@ body {
     padding: 2px 2px 2px 2px;
 }
 .page-footer {
-    /*position: fixed;*/
-    left: 0;
-    right: 0;
+/*    position: absolute;*/
+    bottom: 0;
     height: 50px;
     width: 100%;
     text-align: center;
