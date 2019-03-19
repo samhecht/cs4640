@@ -13,13 +13,13 @@ function submitForm() {
   let zero_len = 0
   let invalid_entry = []
   // check for empty fields
-for(let i = 0; i < length_arr.length; i++){
-  if (length_arr[i] === 0){
+  for(let i = 0; i < length_arr.length; i++){
+    if (length_arr[i] === 0){
       zero_len = 1
       invalid_entry.push(i)
-   }
- }
-  //formCheck(length_arr, zero_len, invalid_entry)
+    }
+  }
+  
 
   validEmail = email.includes("@") && (email.length > 2)
 
@@ -62,8 +62,8 @@ function resizeAbout(x) {
 }
 
 var mob = window.matchMedia("(max-width: 768px)")
-resizeAbout(mob) // Call listener function at run time
-mob.addListener(resizeAbout) // Attach listener function on state changes
+resizeAbout(mob)
+mob.addListener(resizeAbout)
 
 
 

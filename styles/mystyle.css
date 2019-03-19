@@ -8,7 +8,14 @@
   #developer2 {
     width: 60%;
     display: block;
+
   }
+  #developer3 {
+    width: 60%;
+    display: block;
+
+  }
+
 }
 
 html, body {
@@ -67,6 +74,12 @@ body {
   display: inline-block;
 }
 #developer2 img {
+  width: 60%;
+  height: auto;
+  text-align: center;
+  display: inline-block;
+}
+#developer3 img {
   width: 60%;
   height: auto;
   text-align: center;
