@@ -55,12 +55,15 @@ function loginForm() {
 
 
 let gen = document.getElementById("gen")
+if (gen !== null){
 gen.addEventListener("click", () => {
   let pic = document.getElementById("movie-pic")
   pic.src = "../images/the-lord-of-the-rings.jpg"
   let desc = document.getElementById("movie-desc")
   desc.innerHTML = "This movie is the lord of the rings and it is very good."
 })
+}
+
 
 let login = document.getElementById("login-submit")
 login.addEventListener("click", loginForm, false)
