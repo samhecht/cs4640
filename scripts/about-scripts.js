@@ -20,24 +20,21 @@ function submitForm() {
     }
   }
 
-
   validEmail = email.includes("@") && (email.length > 2)
 
   if (validEmail === false){
-    //document.getElementById("form_email").innerHTML = "Enter a valid email"
-    var para = document.createElement("p");
-    var node = document.createTextNode("This is new.");
-    para.appendChild(node);
+    document.getElementById("error").innerHTML = "Enter a valid email"
+  }
+  else if (zero_len === 1){
+    document.getElementById("error").innerHTML = "Please fill out every form"
+  } else {
+    document.getElementById("form_name").value = ""
+    document.getElementById("form_lastname").value = ""
+    document.getElementById("form_email").value = ""
+    document.getElementById("form_message").value = ""
+    document.getElementById("error").innerHTML = "Message Submitted"
+  }
 
-    var element = document.getElementById("form_email");
-    element.appendChild(para);
-    return false
-  }
-  if (zero_len === 1){
-    //document.getElementById("form_message").innerHTML = "please enter a message"
-    return false
-  }
-  return true
 
 }
 
