@@ -1,17 +1,44 @@
+
+<!-- 1. create HTML5 doctype -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  <!-- required to handle IE -->
 
-
+    <!-- 2. include meta tag to ensure proper rendering and touch zooming
+         (bootstrap is designed to be responsive to mobile.
+         Mobile-first styles are part of the core framework.)
+    -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- the width=device-width part sets the width of the page to follow
+         the screen-width of the device (which will vary depending on the device)
+         the initial-scale=1 part sets the initialize zoom level when the page
+         is first loaded by the browser.
+    -->
 
+    <!-- The above 2 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
+    <!-- to use bootstrap:
+         option1: download the files (from http://getbootstrap.com) and put them in
+                  your working directory
+         option2: make a link to the files from a CDN (Content Delivery Network)
+    -->
 
+    <!-- 3. link bootstrap pages (let's use CDN here)
+         Two basic bootstrap pages are
+             https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" (style, link here)
+             https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js (js, link at the bottom)
+         use a link tag to link an external resource
+         a rel (relationship) specifies relationship between the current document and the linked resource
+         href (hypertext reference) specifies the link's destination
+    -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../styles/mystyle.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  for version 3-->
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> if you downloaded bootstrap to your computer -->
 
     <!-- required scripts for IE -->
 <!--    [if lt IE 9]>-->
@@ -26,7 +53,7 @@
                                      // when navbar-fixed-top is used
     </style> -->
 
-    <title>Recently Released</title>
+    <title>Home</title>
     <style>
       /* Style the input field */
       #myInput {
@@ -41,20 +68,75 @@
   <body>
     <header>
 
+      <!-- 4. add navbar (code from getbootstrap.com >> components >> navbar) -->
 
+      <!-- try
+           navbar-static-top
+             - creates a full-width navbar that scrolls away with the page
+             - removes the left, right, and top border created by navbar-default
+           navbar-fixed-top
+             - creates a full-width navbar that sticks to the page
+           navbar-expand-md
+             - allows a navbar to be extended or collapse, depending on the screen size
+             - stacks the navbar vertically on medium (md) screen
+             - try -xl | lg | md | sm
+
+           navbar-inverse sets background to dark color scheme
+      -->
 
       <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <a class="navbar-brand" href="#">Random Movie Generator</a>
 
+           <!-- 5. bootstrap requires a containing element to wrap site contents.
+           There are two container classes to choose from (based on the above css bootstrap):
+           (1) .container class provides a responsive fixed width container
+           (2) .container-fluid class provides a full width container, spanning
+               the entire width of the view point
+           Both .container and .container-fluid set a max-width on the content
+           and cause the center alignment
+        -->
+        <!-- <div class="container">    -->
 
+          <!-- 6. The button is hidden on desktop and becomes a dropdown hamburger menu on mobile.
+               The navigation bar is hidden on small screens and
+               replaced by a button in the top right corner (try to re-size this window).
+               Only when the button (hamburger menu) is clicked, the navigation bar will be displayed.
+               (For bootstrap 3, use <span class="icon-bar"> for each line in the hamburger menu)
+          -->
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <!-- </div> -->
 
+
+        <!-- 7. nav-collapse makes it possible to expand and collapse the menu
+		        require: javascript plugin (we use js bootstrap here, at the bottom)
+		        commonly, lists with links are used for navigation
+
+		        justify-content-end is similar to justify right
+		        (bootstrap 3 use navbar-right)
+
+		        try justify-content-center
+
+		        navbar-nav is a sub-component of navbar which support dropdowns
+
+		        active to indicate the curret page (apply format to nav-link)
+        -->
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
           <ul class="navbar-nav">
-
+<!--
+            <li class="nav-item">
+              <a class="nav-link" href="#">Main</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recently Released</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="#">About</a>
+                <a class="dropdown-item" href="#">User</a>
+              </div>
+            </li>
+-->
             <li class="nav-item">
               <a class="nav-link" href="./sample.html">Main</a>
             </li>
@@ -69,7 +151,7 @@
             </li>
           </ul>
         </div>
-        <form class="form-inline" action="/action_page.php">
+        <form class="form-inline">
           <div class="form-group">
             <label class="sr-only" for="email">Email:</label>
             <input type="email" class ="form-control" id="email" placeholder="Email">
@@ -79,12 +161,19 @@
             <input type="password" class="form-control" id="pwd" placeholder="Password">
           </div>
           <!--
-          <div>
+          <div class="form-group">
             <label><input type="checkbox"> Remember Me</label>
           </div>
-        -->
-          <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+<<<<<<< HEAD
+          <button type="button" class="btn btn-sm btn-primary login-button" id="login-submit">Submit</button>
+=======
+          -->
+          <button type="button" class="btn btn-sm btn-primary login-button" id="login-submit">Submit</button>
         </form>
+        <div>
+            <p id="login-error" style="color: red;"></p>
+        </div>
+
       </nav>
 
     </header>
@@ -132,52 +221,56 @@
           <p> This is a movie description </p>
         </div>
       </div>
+
+
+    <script src="../scripts/login-script.js"></script>
+
+    </body>
       <!-- Footer -->
-      <footer class="page-footer font-small indigo">
+    <footer class="page-footer font-small indigo">
 
-      <!-- Footer Links -->
-          <div class="container">
+    <!-- Footer Links -->
+      <div class="container">
 
-                <!-- Grid row-->
-                <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+            <!-- Grid row-->
+            <div class="row text-center d-flex justify-content-center pt-5 mb-3">
 
-                  <!-- Grid column -->
-                  <div class="col-md-2 mb-3">
-                    <h6 class="text-uppercase">
-                      <a href="#!">Main</a>
-                    </h6>
-                  </div>
-                  <!-- Grid column -->
-
-                  <!-- Grid column -->
-                  <div class="col-md-2 mb-3">
-                    <h6 class="text-uppercase">
-                      <a href="#!">Recently Released</a>
-                    </h6>
-                  </div>
-                  <!-- Grid column -->
-
-                  <!-- Grid column -->
-                  <div class="col-md-2 mb-3">
-                    <h6 class="text-uppercase">
-                      <a href="#!">About</a>
-                    </h6>
-                  </div>
-                  <!-- Grid column -->
-
-                  <!-- Grid column -->
-                  <div class="col-md-2 mb-3">
-                    <h6 class="text-uppercase">
-                      <a href="#!">User</a>
-                    </h6>
-                  </div>
-                  <!-- Grid column -->
-
+              <!-- Grid column -->
+              <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase">
+                  <a href="./sample.html">Main</a>
+                </h6>
               </div>
-        </div>
+              <!-- Grid column -->
+
+              <!-- Grid column -->
+              <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase">
+                  <a href="./recently-released.html">Recently Released</a>
+                </h6>
+              </div>
+              <!-- Grid column -->
+
+              <!-- Grid column -->
+              <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase">
+                  <a href="./about.html">About</a>
+                </h6>
+              </div>
+              <!-- Grid column -->
+
+              <!-- Grid column -->
+              <div class="col-md-2 mb-3">
+                <h6 class="text-uppercase">
+                  <a href="./user.html">User</a>
+                </h6>
+              </div>
+              <!-- Grid column -->
+
+          </div>
+    </div>
 
 
 
     </footer>
-    </body>
 </html>
