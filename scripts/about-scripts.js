@@ -38,5 +38,7 @@ function submitForm() {
 
 }
 
+
+
 let contact = document.getElementById("contact-submit")
 contact.addEventListener("click", submitForm, false)
