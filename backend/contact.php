@@ -11,6 +11,8 @@ function emailDevelopers(){
     $full_email = $first_name . " " . $last_name . "\n" . message . "\n";
     $full_email = $full_email . "\n" . "From " . $email;
 
+    $full_email = wordwrap($full_email, 70);
+
     mail("srh2kq@virginia.edu", "CS4640 Contact", $full_email);
     return;
   } else {
