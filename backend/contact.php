@@ -1,3 +1,6 @@
+<?php
+
+session_start();
 function emailDevelopers(){
   if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $first_name = $_POST["form_name"];
@@ -14,3 +17,5 @@ function emailDevelopers(){
     return;
   }
 }
+
+?>
