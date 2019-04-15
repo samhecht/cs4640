@@ -14,6 +14,8 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
+      
+
 
     <title>Message Status</title>
     <style>
@@ -75,6 +77,7 @@
           </div>
         </nav>
       </header>
+
 <?php
 
 session_start();
@@ -83,6 +86,7 @@ function emailDevelopers(){
   if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if (!empty($_POST['name']) && !empty($_POST['surname'])&& !empty($_POST['email'])&& !empty($_POST['message'])) {
       // get form inputs
+
       $first_name = $_POST["name"];
       $last_name = $_POST["surname"];
       $email = $_POST["email"];
@@ -131,7 +135,7 @@ function validateInput(){
       $bad = true;
     }
     if (strpos($email, ".") === false){
-      
+
       $bad = true;
     }
 
@@ -162,4 +166,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 ?>
+
 </html>
