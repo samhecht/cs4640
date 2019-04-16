@@ -77,7 +77,12 @@
           </div>
         </nav>
       </header>
+<<<<<<< HEAD
+  </body>
+</html>
+=======
 
+>>>>>>> 29608339ed269955d2d0c8257a95f5b2a2519ce4
 <?php
 
 session_start();
@@ -110,41 +115,52 @@ function emailDevelopers(){
 
 function validateInput(){
   if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
-    // get form inputs
-    $first_name = $_POST["name"];
-    $last_name = $_POST["surname"];
-    $email = $_POST["email"];
-    $message = $_POST["message"];
-
-
-    $bad = false;
+    if (!empty($_POST['name']) && !empty($_POST['surname'])&& !empty($_POST['email'])&& !empty($_POST['message'])) {
+      // get form inputs
+      $first_name = $_POST["name"];
+      $last_name = $_POST["surname"];
+      $email = $_POST["email"];
+      $message = $_POST["message"];
 
 
-    // check for email and message
-    if (strlen($email) < 4){
-      $bad = true;
-    }
-    if (strlen($message) < 1){
+      $bad = false;
 
-      $bad = true;
-    }
 
-    if (strpos($email, "@") === false){
+      // check for email and message
+      if (strlen($email) < 4){
+        $bad = true;
+      }
+      if (strlen($message) < 1){
 
+        $bad = true;
+      }
+
+      if (strpos($email, "@") === false){
+
+        $bad = true;
+      }
+      if (strpos($email, ".") === false){
+
+<<<<<<< HEAD
+        $bad = true;
+      }
+=======
       $bad = true;
     }
     if (strpos($email, ".") === false){
 
       $bad = true;
     }
+>>>>>>> 29608339ed269955d2d0c8257a95f5b2a2519ce4
 
-    return $bad;
-  } else {
-    echo "must be a post request";
-    return false;
+      return $bad;
+    }
   }
-
+  else {
+      echo "must be a post request";
+      return false;
+    
+  }
 }
 
 
@@ -155,7 +171,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     emailDevelopers();
     echo "Message sent.";
   } else {
-
     echo "Please completely fill out the form.";
 
   }
@@ -167,4 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 ?>
 
+<<<<<<< HEAD
+=======
 </html>
+>>>>>>> 29608339ed269955d2d0c8257a95f5b2a2519ce4
