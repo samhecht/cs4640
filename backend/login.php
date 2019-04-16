@@ -35,7 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $user = $_POST['email'];
     $pwd = $_POST['pwd'];
 
-//    $_SESSION[user] = $_POST['email'];
 
     $usernameExists = 0;
     $check = "SELECT * FROM user WHERE username = :user";
@@ -60,6 +59,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
       $statement->closeCursor();
 
     }
+
+    $cookie_name = "user";
+    $cookie_value = $user;
+    // set a cookie to track the user up to 5 days
+    setcookie($cookie_name, $cookie_value, time() + (86400 * 5), '/');
   }
 }
 

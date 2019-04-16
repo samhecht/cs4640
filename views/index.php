@@ -4,7 +4,7 @@
 <?php
   session_start();
 ?>
-
+<?php include '../backend/login.php';?>
 
 
 <!-- some of the bootstrap is inspired from this tutorial on the
@@ -188,7 +188,7 @@
     </footer>
 
     <!-- import javascript and php files-->
-    <?php include '../backend/login.php';?>
+
     <script src="../scripts/login-script.js"></script>
 
     </body>
