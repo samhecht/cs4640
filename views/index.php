@@ -118,6 +118,14 @@
           $movie_url = $_GET["movie_img"];
           echo "<div class='movie' style='margin-top: 5%'><img src='$movie_url' id='movie-pic'>
           <p style='text-align: center;' id='movie-desc'>$movie_title</p></div>";
+          if (!isset($_SESSION["movies"])){
+            $_SESSION["movies"] = array();
+          } else {
+            array_push($_SESSION["movies"], $_GET["curr_movie"]);
+            foreach($_SESSION["movies"] as $movie){
+              echo $movie;
+            }
+          }
         }
       }
      ?>
