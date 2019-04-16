@@ -64,7 +64,7 @@ let gen = document.getElementById("gen")
 // make sure the button exists
 if (gen !== null){
   // call anonymous arrow function
-  gen.addEventListener("click", () => {
+  //gen.addEventListener("click", () => {
     // random number for movie
     var num = Math.floor(Math.random() * 2000)
     num = num.toString()
@@ -92,10 +92,16 @@ if (gen !== null){
       pic.src = url;
       desc.innerHTML = name;
 
+      let get_name = document.getElementById("movie_title")
+      let get_img = document.getElementById("movie_img")
+
+      get_name.value = name
+      get_img.value = url
+
       let html_number = document.getElementById("current_movie")
       html_number.value = num
     });
-  })
+  //})
 }
 
 // add event listeners

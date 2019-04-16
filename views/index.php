@@ -1,5 +1,7 @@
 <?php
   session_start();
+?>
+<?php
   /*
   if (!isset($_SESSION["movies"])){
     $_SESSION["movies"] = array();
@@ -12,6 +14,7 @@
   }
   */
 ?>
+
 <!-- By Johnny Choi and Sammy Hecht -->
 <!-- home page for the site -> will refactor the name later -->
 
@@ -102,27 +105,39 @@
 
 
 
-      <!-- Poster for the generated movie goes here -->
+      <!-- Poster for the generated movie goes here
       <div class="movie" style="margin-top: 5%;">
         <img src="../images/blank-movie.jpg" id="movie-pic">
         <p style="text-align: center;" id="movie-desc"></p>
       </div>
-
+    -->
+    <?php
+      if ($_SERVER["REQUEST_METHOD"] == "GET"){
+        if (isset($_GET["movie_title"]) && isset($_GET["movie_img"])){
+          $movie_title = $_GET["movie_title"];
+          $movie_url = $_GET["movie_img"];
+          echo "<div class='movie' style='margin-top: 5%'><img src='$movie_url' id='movie-pic'>
+          <p style='text-align: center;' id='movie-desc'>$movie_title</p></div>";
+        }
+      }
+     ?>
       <!-- Random Movie Generater Button -->
       <div class="container">
           <div class="col-lg-12 text-center">
-            <form action="index.php">
+            <form action="index.php" method="get">
               <input hidden id="current_movie" name="curr_movie"/>
-              
+              <input hidden type="text" id="movie_title" name="movie_title" value=""/>
+              <input hidden type="text" id="movie_img" name="movie_img" value=""/>
               <!-- Generate Movie Button -->
-              <input class="btn btn-danger btn-lg" href="#" value="Generate" id="gen"/>
-              
+              <input type="submit" class="btn btn-danger btn-lg" href="#" value="Generate" id="gen"/>
+
               <!-- Save Generated Movie Button -->
               <input class="btn btn-primary btn-lg" href="#" value="Save" id="save" />
             </form>
             <p></p>
           </div>
       </div>
+
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
