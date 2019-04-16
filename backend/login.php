@@ -3,19 +3,19 @@
 $hostname = 'localhost:3306';
 
 // database name
-$dbname = 'jc2ar';
+$dbname = 'sammyH';
 
 // database credentials
-$username = 'jc2ar';
-$password = 'Coffeeandcigs6$';
+$username = 'sammyH';
+$password = 'db-pass';
 $dsn = "mysql:host=$hostname;dbname=$dbname";
 
-try 
+try
 {
 //  $db = new PDO("mysql:host=$hostname;dbname=$dbname, $username, $password);
    $db = new PDO($dsn, $username, $password);
    
-   // dispaly a message to let us know that we are connected to the database 
+   // dispaly a message to let us know that we are connected to the database
 }
 catch (PDOException $e)     // handle a PDO exception (errors thrown by the PDO library)
 {
@@ -35,10 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
     $user = $_POST['email'];
     $pwd = $_POST['pwd'];
-    
+
 //    $_SESSION[user] = $_POST['email'];
-    
-    
+
+
     $query = "INSERT INTO user (id, username, password) VALUES ('last_insert_id', :user, :pwd)";
 
     $statement = $db->prepare($query);
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $statement->bindValue(':pwd', $pwd);
     $statement->execute();
     $statement->closeCursor();
-    
+
 
   }
 }
@@ -54,14 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 //    if (isset($_POST['email'])){
 //      $user = $_POST['email'];
 //      setcookie('user', $user, time()+3600);
-//      
+//
 //    }
-//    
+//
 //    if (isset($_COOKIE['user'])) {
-//      
+//
 //      $user = $_COOKIE['user'];
 //      echo "<h1>Welcome $user ! </h1>"
 //    }
 
 ?>
-

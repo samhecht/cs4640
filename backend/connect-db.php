@@ -5,11 +5,11 @@
 $hostname = 'localhost:3306';
 
 // database name
-$dbname = 'jc2ar';
+$dbname = 'sammyH';
 
 // database credentials
-$username = 'jc2ar';
-$password = 'Coffeeandcigs6$';
+$username = 'sammyH';
+$password = 'db-pass';
 
 // DSN (Data Source Name) specifies the host computer for the MySQL database
 // and the name of the database. If the MySQL database is running on the same server
