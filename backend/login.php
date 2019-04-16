@@ -15,7 +15,6 @@ try
 //  $db = new PDO("mysql:host=$hostname;dbname=$dbname, $username, $password);
    $db = new PDO($dsn, $username, $password);
    
-   // dispaly a message to let us know that we are connected to the database 
 }
 catch (PDOException $e)     // handle a PDO exception (errors thrown by the PDO library)
 {
@@ -38,16 +37,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     
 //    $_SESSION[user] = $_POST['email'];
     
+    $usernameExists = 0;
+    $check = "SELECT * FROM user WHERE username = :user";
+    $statement_check = $db->prepare($check);
+    $statement_check->bindValue(':user', $user);
+    $statement_check->execute();
     
-    $query = "INSERT INTO user (id, username, password) VALUES ('last_insert_id', :user, :pwd)";
-
-    $statement = $db->prepare($query);
-    $statement->bindValue(':user', $user);
-    $statement->bindValue(':pwd', $pwd);
-    $statement->execute();
-    $statement->closeCursor();
+    if ($row = $statement_check->fetch(PDO::FETCH_ASSOC)) {
+      $usernameExists = 1;
+    } else {
+      $usernameExists = 0;
+    }
+    $statement_check->closeCursor();
     
+    if ($usernameExists === 0) {
+      $query = "INSERT INTO user (id, username, password) VALUES ('last_insert_id', :user, :pwd)";
 
+      $statement = $db->prepare($query);
+      $statement->bindValue(':user', $user);
+      $statement->bindValue(':pwd', $pwd);
+      $statement->execute();
+      $statement->closeCursor();
+    
+    }
   }
 }
 
