@@ -126,6 +126,7 @@ function createTable()
              movie_name VARCHAR(20) NOT NULL,
              PRIMARY KEY(user_id, movie_name))";
   
+
    $statement = $db->prepare($query);
    $statement->execute();   
    $statement->closeCursor();

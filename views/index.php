@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!-- By Johnny Choi and Sammy Hecht -->
 <!-- home page for the site -> will refactor the name later -->
 
@@ -40,7 +41,7 @@
       <!-- nav bar -->
       <nav class="navbar navbar-expand-md bg-dark navbar-dark">
 
-        <a class="navbar-brand" href="./sample.html">Random Movie Generator</a>
+        <a class="navbar-brand" href="./index.php">Random Movie Generator</a>
 
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -52,7 +53,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="./sample.html">Main</a>
+              <a class="nav-link" href="./index.php">Main</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./recently-released.html">Recently Released</a>
@@ -122,7 +123,7 @@
                   <!-- Grid column -->
                   <div class="col-md-2">
                     <h6 class="text-uppercase">
-                      <a href="../views/sample.html">Main</a>
+                      <a href="../views/index.php">Main</a>
                     </h6>
                   </div>
                   <!-- Grid column -->
@@ -138,7 +139,7 @@
                   <!-- Grid column -->
                   <div class="col-md-2">
                     <h6 class="text-uppercase">
-                      <a href="../views/about.html">About</a>
+                      <a href="../views/index.php">About</a>
                     </h6>
                   </div>
                   <!-- Grid column -->
@@ -158,6 +159,7 @@
 
     <!-- import javascript files -->
     <script src="../scripts/login-script.js"></script>
+    <?php include '../backend/connect-db.php';?>
     </body>
 
 

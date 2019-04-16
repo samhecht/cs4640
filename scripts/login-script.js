@@ -65,9 +65,10 @@ let gen = document.getElementById("gen")
 if (gen !== null){
   // call anonymous arrow function
   gen.addEventListener("click", () => {
-    // dummy data for movie rec
+    // random number for movie
     var num = Math.floor(Math.random() * 2000)
     num = num.toString()
+    // create settings for ajax request
     var settings = {
       "async": true,
       "crossDomain": true,
@@ -80,18 +81,18 @@ if (gen !== null){
 
     let desc = document.getElementById("movie-desc")
     var base_url = "https://image.tmdb.org/t/p/w500/"
+
+    // request the movie api with a random movie
     $.ajax(settings).done(function (response) {
       let name = response.original_title;
       let url = base_url + response.poster_path
 
+      // update the movie name and image
       let pic = document.getElementById("movie-pic")
       pic.src = url;
       desc.innerHTML = name;
       console.log(response);
     });
-
-
-    // desc.innerHTML = "This movie is the lord of the rings and it is very good."
   })
 }
 
