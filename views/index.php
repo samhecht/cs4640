@@ -1,22 +1,11 @@
+<!-- By Johnny Choi and Sammy Hecht -->
+<!-- home page for the site -> will refactor the name later -->
+
 <?php
   session_start();
 ?>
-<?php
-  /*
-  if (!isset($_SESSION["movies"])){
-    $_SESSION["movies"] = array();
-  } else if ($_SERVER["REQUEST_METHOD"] == "GET"){
-    if (isset($_GET['curr_movie'])){
-      $curr_movie = $_GET['curr_movie'];
-      array_push($_SESSION["movies"], $curr_movie);
-      echo $curr_movie;
-    }
-  }
-  */
-?>
 
-<!-- By Johnny Choi and Sammy Hecht -->
-<!-- home page for the site -> will refactor the name later -->
+
 
 <!-- some of the bootstrap is inspired from this tutorial on the
     bootstrap documentation: https://mdbootstrap.com/docs/jquery/navigation/navbar/ -->
@@ -105,12 +94,6 @@
 
 
 
-      <!-- Poster for the generated movie goes here
-      <div class="movie" style="margin-top: 5%;">
-        <img src="../images/blank-movie.jpg" id="movie-pic">
-        <p style="text-align: center;" id="movie-desc"></p>
-      </div>
-    -->
     <?php
       if ($_SERVER["REQUEST_METHOD"] == "GET"){
         if (isset($_GET["movie_title"]) && isset($_GET["movie_img"])){
@@ -202,7 +185,7 @@
 
     </footer>
 
-    <!-- import javascript files -->
+    <!-- import javascript and php files-->
     <?php include '../backend/login.php';?>
     <script src="../scripts/login-script.js"></script>
 
