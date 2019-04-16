@@ -77,12 +77,8 @@
           </div>
         </nav>
       </header>
-<<<<<<< HEAD
   </body>
-</html>
-=======
 
->>>>>>> 29608339ed269955d2d0c8257a95f5b2a2519ce4
 <?php
 
 session_start();
@@ -141,18 +137,8 @@ function validateInput(){
       }
       if (strpos($email, ".") === false){
 
-<<<<<<< HEAD
         $bad = true;
       }
-=======
-      $bad = true;
-    }
-    if (strpos($email, ".") === false){
-
-      $bad = true;
-    }
->>>>>>> 29608339ed269955d2d0c8257a95f5b2a2519ce4
-
       return $bad;
     }
   }
@@ -176,13 +162,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
   }
 }
 
-
-
-
-
 ?>
-
-<<<<<<< HEAD
-=======
+  
 </html>
->>>>>>> 29608339ed269955d2d0c8257a95f5b2a2519ce4

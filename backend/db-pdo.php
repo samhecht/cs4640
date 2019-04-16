@@ -114,14 +114,27 @@ function createTable()
 {
    require('connect-db.php');
 
-//    $query = "CREATE TABLE `web4640`.`courses` ( 
-//              `courseID` VARCHAR(8) PRIMARY KEY, 
-//              `course_desc` VARCHAR(20) NOT NULL )";
-   $query = "CREATE TABLE courses (
-             courseID VARCHAR(8) PRIMARY KEY,
-             course_desc VARCHAR(20) NOT NULL )";
-
+   $query = "CREATE TABLE user (
+             id INT NOT NULL PRIMARY KEY,
+             username VARCHAR(20),
+             password VARCHAR(30) NOT NULL)";
+   $query2 = "CREATE TABLE movie (
+             movie_name VARCHAR(20) NOT NULL PRIMARY KEY
+             )";
+   $query3 = "CREATE TABLE user_movie (
+             user_id INT NOT NULL,
+             movie_name VARCHAR(20) NOT NULL,
+             PRIMARY KEY(user_id, movie_name))";
+  
    $statement = $db->prepare($query);
+   $statement->execute();   
+   $statement->closeCursor();
+  
+   $statement = $db->prepare($query2);
+   $statement->execute();   
+   $statement->closeCursor();
+  
+   $statement = $db->prepare($query3);
    $statement->execute();   
    $statement->closeCursor();
 }
@@ -136,7 +149,7 @@ function dropTable()
    require('connect-db.php');
 
 //    $query = "DROP TABLE `web4640`.`courses`";
-   $query = "DROP TABLE courses";
+   $query = "DROP TABLE username";
 
    $statement = $db->prepare($query);
    $statement->execute();   
