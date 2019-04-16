@@ -34,7 +34,7 @@
       <!-- nav bar -->
       <nav class="navbar navbar-expand-md bg-dark navbar-dark">
 
-        <a class="navbar-brand" href="./sample.html">Random Movie Generator</a>
+        <a class="navbar-brand" href="../views/index.php">Random Movie Generator</a>
 
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -46,16 +46,16 @@
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="../views/sample.html">Main</a>
+              <a class="nav-link" href="../views/index.php">Main</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../views/recently-released.html">Recently Released</a>
+              <a class="nav-link" href="../views/recently-released.php">Recently Released</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../views/about.html">About</a>
+              <a class="nav-link" href="../views/about.php">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../views/user.html">User</a>
+              <a class="nav-link" href="../views/user.php">User</a>
             </li>
           </ul>
         </div>

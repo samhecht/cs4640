@@ -137,7 +137,7 @@
               <input type="submit" class="btn btn-danger btn-lg" href="#" value="Generate" id="gen"/>
 
               <!-- Save Generated Movie Button -->
-              <input class="btn btn-primary btn-lg" href="#" value="Save" id="save" />
+              <!--<input class="btn btn-primary btn-lg" href="#" value="Save" id="save" />-->
             </form>
             <p></p>
           </div>
