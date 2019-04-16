@@ -80,14 +80,14 @@
         </div>
 
         <!-- Log In Forms/Button -->
-        <form class="form-inline">
+        <form class="form-inline" action="../backend/sample.php" method="POST">
           <div class="form-group">
             <label class="sr-only" for="email">Email:</label>
-            <input type="email" class ="form-control" id="email" placeholder="Email" autofocus>
+            <input name="email" type="email" class ="form-control" id="email" placeholder="Email" autofocus>
           </div>
           <div class="form-group">
             <label class="sr-only" for="pwd" >Password:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Password">
+            <input name="pwd" type="password" class="form-control" id="pwd" placeholder="Password">
           </div>
           <button type="button" class="btn btn-sm btn-primary login-button" id="login-submit">Submit</button>
           </form>

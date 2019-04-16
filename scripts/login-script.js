@@ -49,8 +49,8 @@ function loginForm() {
         document.getElementById("login-error").innerHTML = "Please enter valid password"
         document.getElementById("pwd").focus()
     } else {
-        document.getElementById("email").value = ""
-        document.getElementById("pwd").value = ""
+//        document.getElementById("email").value = ""
+//        document.getElementById("pwd").value = ""
         document.getElementById("login-error").innerHTML = "Successfully Logged In"
     }
 
