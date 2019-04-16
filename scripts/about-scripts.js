@@ -3,6 +3,7 @@
 
 
 // validate input on the contact form
+/*
 function submitForm() {
 
   // get input
@@ -42,7 +43,7 @@ function submitForm() {
 
 
 }
-
+*/
 // On mobile, create one column
 function resizeAbout(size) {
   if (size.matches) {
@@ -73,6 +74,7 @@ resizeAbout(mob)
 mob.addListener(resizeAbout)
 
 
-
+/*
 let contact = document.getElementById("contact-submit")
 contact.addEventListener("click", submitForm, false)
+*/

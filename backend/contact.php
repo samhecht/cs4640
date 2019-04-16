@@ -46,16 +46,16 @@
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="./sample.html">Main</a>
+              <a class="nav-link" href="../views/sample.html">Main</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./recently-released.html">Recently Released</a>
+              <a class="nav-link" href="../views/recently-released.html">Recently Released</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./about.html">About</a>
+              <a class="nav-link" href="../views/about.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./user.html">User</a>
+              <a class="nav-link" href="../views/user.html">User</a>
             </li>
           </ul>
         </div>
@@ -83,17 +83,17 @@
 
 <?php
 
-session_start();
 function emailDevelopers(){
   // check the request method
-  if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    if (!empty($_POST['name']) && !empty($_POST['surname'])&& !empty($_POST['email'])&& !empty($_POST['message'])) {
+  if ($_SERVER["REQUEST_METHOD"] == "GET"){
+
+    if (!empty($_GET['name']) && !empty($_GET['surname'])&& !empty($_GET['email'])&& !empty($_GET['message'])) {
       // get form inputs
 
-      $first_name = $_POST["name"];
-      $last_name = $_POST["surname"];
-      $email = $_POST["email"];
-      $message = $_POST["message"];
+      $first_name = $_GET["name"];
+      $last_name = $_GET["surname"];
+      $email = $_GET["email"];
+      $message = $_GET["message"];
 
       $full_email = $first_name . " " . $last_name . "\n" . $message . "\n";
       $full_email = $full_email . "\n" . "From " . $email;
@@ -112,13 +112,14 @@ function emailDevelopers(){
 }
 
 function validateInput(){
-  if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    if (!empty($_POST['name']) && !empty($_POST['surname'])&& !empty($_POST['email'])&& !empty($_POST['message'])) {
+  if ($_SERVER["REQUEST_METHOD"] == "GET"){
+    if (isset($_GET['name']) && isset($_GET['surname']) && isset($_GET['email']) && isset($_GET['message'])) {
       // get form inputs
-      $first_name = $_POST["name"];
-      $last_name = $_POST["surname"];
-      $email = $_POST["email"];
-      $message = $_POST["message"];
+      $first_name = $_GET["name"];
+      $last_name = $_GET["surname"];
+      $email = $_GET["email"];
+      $message = $_GET["message"];
+
 
 
       $bad = false;
@@ -139,17 +140,12 @@ function validateInput(){
       }
       if (strpos($email, ".") === false){
 
-
         $bad = true;
       }
-
-      if (strpos($email, ".") === false){
-
-        $bad = true;
-      }
-
 
       return $bad;
+    } else {
+      echo "the post variables aren't set";
     }
   } else {
       echo "must be a post request";
@@ -160,7 +156,7 @@ function validateInput(){
 }
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] == "GET"){
 
   // if the input is good, email the devs
   if (validateInput() === false){
