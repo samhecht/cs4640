@@ -18,10 +18,10 @@
 $hostname = 'localhost:3306';
 
 // database name
-$dbname = 'web4640';
+$dbname = 'jc2ar';
 
 // database credentials
-$username = 'web4640';
+$username = 'jc2ar';
 $password = 'pwd4640';
 
 // DSN (Data Source Name) specifies the host computer for the MySQL database 
@@ -46,7 +46,7 @@ try
    $db = new PDO($dsn, $username, $password);
    
    // dispaly a message to let us know that we are connected to the database 
-   // echo "<p>You are connected to the database</p>";
+   echo "<p>You are connected to the database</p>";
 }
 catch (PDOException $e)     // handle a PDO exception (errors thrown by the PDO library)
 {
