@@ -91,7 +91,9 @@ if (gen !== null){
       let pic = document.getElementById("movie-pic")
       pic.src = url;
       desc.innerHTML = name;
-      console.log(response);
+
+      let html_number = document.getElementById("current_movie")
+      html_number.value = num
     });
   })
 }
