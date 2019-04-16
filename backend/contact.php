@@ -75,6 +75,8 @@
           </div>
         </nav>
       </header>
+  </body>
+</html>
 <?php
 
 session_start();
@@ -106,41 +108,43 @@ function emailDevelopers(){
 
 function validateInput(){
   if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
-    // get form inputs
-    $first_name = $_POST["name"];
-    $last_name = $_POST["surname"];
-    $email = $_POST["email"];
-    $message = $_POST["message"];
-
-
-    $bad = false;
+    if (!empty($_POST['name']) && !empty($_POST['surname'])&& !empty($_POST['email'])&& !empty($_POST['message'])) {
+      // get form inputs
+      $first_name = $_POST["name"];
+      $last_name = $_POST["surname"];
+      $email = $_POST["email"];
+      $message = $_POST["message"];
 
 
-    // check for email and message
-    if (strlen($email) < 4){
-      $bad = true;
+      $bad = false;
+
+
+      // check for email and message
+      if (strlen($email) < 4){
+        $bad = true;
+      }
+      if (strlen($message) < 1){
+
+        $bad = true;
+      }
+
+      if (strpos($email, "@") === false){
+
+        $bad = true;
+      }
+      if (strpos($email, ".") === false){
+
+        $bad = true;
+      }
+
+      return $bad;
     }
-    if (strlen($message) < 1){
-
-      $bad = true;
-    }
-
-    if (strpos($email, "@") === false){
-
-      $bad = true;
-    }
-    if (strpos($email, ".") === false){
-      
-      $bad = true;
-    }
-
-    return $bad;
-  } else {
-    echo "must be a post request";
-    return false;
   }
-
+  else {
+      echo "must be a post request";
+      return false;
+    
+  }
 }
 
 
@@ -151,7 +155,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     emailDevelopers();
     echo "Message sent.";
   } else {
-
     echo "Please completely fill out the form.";
 
   }
@@ -162,4 +165,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 ?>
-</html>
+
