@@ -95,19 +95,21 @@
 
 
     <?php
+      // check for GET
       if ($_SERVER["REQUEST_METHOD"] == "GET"){
+        // make sure there weren't issues getting the data
         if (isset($_GET["movie_title"]) && isset($_GET["movie_img"])){
           $movie_title = $_GET["movie_title"];
           $movie_url = $_GET["movie_img"];
+          // echo the random movie to the page
           echo "<div class='movie' style='margin-top: 5%'><img src='$movie_url' id='movie-pic'>
           <p style='text-align: center;' id='movie-desc'>$movie_title</p></div>";
+          // check if sessions has been initialized
           if (!isset($_SESSION["movies"])){
             $_SESSION["movies"] = array();
           } else {
+            // save the current movie to the sessions superglobal
             array_push($_SESSION["movies"], $_GET["curr_movie"]);
-            foreach($_SESSION["movies"] as $movie){
-              echo $movie;
-            }
           }
         }
       }
