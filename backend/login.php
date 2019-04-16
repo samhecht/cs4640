@@ -60,10 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     }
 
-    $cookie_name = "user";
+
     $cookie_value = $user;
     // set a cookie to track the user up to 5 days
-    setcookie($cookie_name, $cookie_value, time() + (86400 * 5), '/');
+    setcookie("user", $cookie_value);
   }
 }
 

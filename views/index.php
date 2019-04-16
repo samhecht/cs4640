@@ -3,6 +3,7 @@
 
 <?php
   session_start();
+  setcookie("user", "", time() + (86400 * 5), "/");
 ?>
 <?php include '../backend/login.php';?>
 
@@ -61,33 +62,44 @@
               <a class="nav-link" href="./index.php">Main</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./recently-released.html">Recently Released</a>
+              <a class="nav-link" href="./recently-released.php">Recently Released</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./about.html">About</a>
+              <a class="nav-link" href="./about.php">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./user.html">User</a>
+              <a class="nav-link" href="./user.php">User</a>
             </li>
           </ul>
         </div>
 
         <!-- Log In Forms/Button -->
-        <form class="form-inline" id="login_form" method="POST">
-          <div class="form-group">
-            <label class="sr-only" for="email">Email:</label>
-            <input name="email" type="email" class ="form-control" id="email" placeholder="Email" autofocus>
-          </div>
-          <div class="form-group">
-            <label class="sr-only" for="pwd" >Password:</label>
-            <input name="pwd" type="password" class="form-control" id="pwd" placeholder="Password">
-          </div>
-<!--          <button type="button" class="btn btn-sm btn-primary login-button" id="login-submit">Submit</button>-->
-          <input type="submit" name="submit" id="login-submit" value="Login"/>
-          </form>
-          <div>
-              <p id="login-error" style="color: red;"></p>
-          </div>
+        <?php
+          if (strlen($_COOKIE["user"]) < 2){
+            echo '<form class="form-inline" id="login_form" method="POST">
+              <div class="form-group">
+                <label class="sr-only" for="email">Email:</label>
+                <input name="email" type="email" class ="form-control" id="email" placeholder="Email" autofocus>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="pwd" >Password:</label>
+                <input name="pwd" type="password" class="form-control" id="pwd" placeholder="Password">
+              </div>
+    <!--          <button type="button" class="btn btn-sm btn-primary login-button" id="login-submit">Submit</button>-->
+              <input type="submit" name="submit" id="login-submit" value="Login"/>
+              </form>
+              <div>
+                  <p id="login-error" style="color: red;"></p>
+              </div>';
+
+          } else {
+            $user = $_COOKIE['user'];
+            echo "<li class='nav-item'>
+              <p class='nav-link' style='color: white;'>Welcome $user</p>
+            </li>";
+          }
+         ?>
+
         </nav>
       </header>
 
@@ -161,7 +173,7 @@
                   <!-- Grid column -->
                   <div class="col-md-2">
                     <h6 class="text-uppercase">
-                      <a href="../views/recently-released.html">Recently Released</a>
+                      <a href="../views/recently-released.php">Recently Released</a>
                     </h6>
                   </div>
                   <!-- Grid column -->
@@ -177,7 +189,7 @@
                   <!-- Grid column -->
                   <div class="col-md-2">
                     <h6 class="text-uppercase">
-                      <a href="#!">User</a>
+                      <a href="./user.php">User</a>
                     </h6>
                   </div>
                   <!-- Grid column -->
