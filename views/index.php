@@ -1,5 +1,6 @@
 <?php
   session_start();
+  /*
   if (!isset($_SESSION["movies"])){
     $_SESSION["movies"] = array();
   } else if ($_SERVER["REQUEST_METHOD"] == "GET"){
@@ -9,7 +10,7 @@
       echo $curr_movie;
     }
   }
-
+  */
 ?>
 <!-- By Johnny Choi and Sammy Hecht -->
 <!-- home page for the site -> will refactor the name later -->
@@ -109,9 +110,9 @@
       <!-- Random Movie Generater Button -->
       <div class="container">
           <div class="col-lg-12 text-center">
-            <form action="index.php" method="get">
+            <form action="index.php">
               <input hidden id="current_movie" name="curr_movie"/>
-              <input type="submit" class="btn btn-danger btn-lg" href="#" value="Generate" id="gen"/>
+              <input class="btn btn-danger btn-lg" href="#" value="Generate" id="gen"/>
             </form>
             <p></p>
           </div>
