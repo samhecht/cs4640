@@ -114,11 +114,11 @@ function createTable()
 {
    require('connect-db.php');
 
-//    $query = "CREATE TABLE `web4640`.`courses` ( 
+//    $query = "CREATE TABLE `web4640`.`username` ( 
 //              `courseID` VARCHAR(8) PRIMARY KEY, 
 //              `course_desc` VARCHAR(20) NOT NULL )";
-   $query = "CREATE TABLE courses (
-             courseID VARCHAR(8) PRIMARY KEY,
+   $query = "CREATE TABLE users (
+             username VARCHAR(20) PRIMARY KEY,
              course_desc VARCHAR(20) NOT NULL )";
 
    $statement = $db->prepare($query);
