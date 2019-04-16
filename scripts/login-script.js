@@ -66,10 +66,32 @@ if (gen !== null){
   // call anonymous arrow function
   gen.addEventListener("click", () => {
     // dummy data for movie rec
-    let pic = document.getElementById("movie-pic")
-    pic.src = "../images/the-lord-of-the-rings.jpg"
+    var num = Math.floor(Math.random() * 2000)
+    num = num.toString()
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://api.themoviedb.org/3/movie/" + num + "?language=en-US&api_key=53ba7831b31ceda4cde1c4e8db70ba41",
+      "method": "GET",
+      "headers": {},
+      "data": "{}"
+    }
+
+
     let desc = document.getElementById("movie-desc")
-    desc.innerHTML = "This movie is the lord of the rings and it is very good."
+    var base_url = "https://image.tmdb.org/t/p/w500/"
+    $.ajax(settings).done(function (response) {
+      let name = response.original_title;
+      let url = base_url + response.poster_path
+
+      let pic = document.getElementById("movie-pic")
+      pic.src = url;
+      desc.innerHTML = name;
+      console.log(response);
+    });
+
+
+    // desc.innerHTML = "This movie is the lord of the rings and it is very good."
   })
 }
 
