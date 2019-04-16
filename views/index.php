@@ -3,7 +3,7 @@
 
 <?php
   session_start();
-  setcookie("user", "", time() + (86400 * 5), "/");
+  setcookie("user", "n", time() + (86400 * 5), "/");
 ?>
 <?php include '../backend/login.php';?>
 
@@ -75,6 +75,8 @@
 
         <!-- Log In Forms/Button -->
         <?php
+        // if user hasn't been set, supply a login form
+
           if (strlen($_COOKIE["user"]) < 2){
             echo '<form class="form-inline" id="login_form" method="POST">
               <div class="form-group">
@@ -93,6 +95,7 @@
               </div>';
 
           } else {
+            // if user has been set, welcome them
             $user = $_COOKIE['user'];
             echo "<li class='nav-item'>
               <p class='nav-link' style='color: white;'>Welcome $user</p>
@@ -144,6 +147,7 @@
       </div>
 
 
+      <!-- bootstrap and ajax -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 
@@ -199,7 +203,7 @@
 
     </footer>
 
-    <!-- import javascript and php files-->
+    <!-- import javascript external javascript files-->
 
     <script src="../scripts/login-script.js"></script>
 

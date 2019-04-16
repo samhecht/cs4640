@@ -91,6 +91,7 @@
         </nav>
       </header>
     <body>
+
       <h2 style="text-align: center; padding-top: 5%;">Recent Releases</h2>
       <!-- toggles the release display -->
       <button type="button" class="btn btn-sm btn-primary login-button" id="toggle">Toggle View</button>
@@ -99,53 +100,53 @@
       <div id="row-view">
         <div class="row" id="developer">
           <div class="col text-center">
-            <img src="../images/blank-movie.jpg">
+            <img src="../images/blank-movie.jpg" class="grid-img">
             <p> This is a movie description </p>
           </div>
           <div class="col text-center">
-            <img src="../images/blank-movie.jpg">
+            <img src="../images/blank-movie.jpg" class="grid-img">
             <p> This is a movie description </p>
           </div>
           <div class="col text-center">
-            <img src="../images/blank-movie.jpg">
+            <img src="../images/blank-movie.jpg" class="grid-img">
             <p> This is a movie description </p>
           </div>
         </div>
         <div class="row" id="developer2">
           <div class="col text-center">
-            <img src="../images/blank-movie.jpg">
+            <img src="../images/blank-movie.jpg" class="grid-img">
             <p> This is a movie description </p>
           </div>
           <div class="col text-center">
-            <img src="../images/blank-movie.jpg">
+            <img src="../images/blank-movie.jpg" class="grid-img">
             <p> This is a movie description </p>
           </div>
           <div class="col text-center">
-            <img src="../images/blank-movie.jpg">
+            <img src="../images/blank-movie.jpg" class="grid-img">
             <p> This is a movie description </p>
           </div>
         </div>
         <div class="row" id="developer3">
           <div class="col text-center">
-            <img src="../images/blank-movie.jpg">
+            <img src="../images/blank-movie.jpg" class="grid-img">
             <p> This is a movie description </p>
           </div>
           <div class="col text-center">
-            <img src="../images/blank-movie.jpg">
+            <img src="../images/blank-movie.jpg" class="grid-img">
             <p> This is a movie description </p>
           </div>
           <div class="col text-center">
-            <img src="../images/blank-movie.jpg">
+            <img src="../images/blank-movie.jpg" class="grid-img">
             <p> This is a movie description </p>
           </div>
         </div>
       </div>
 
-      <!-- list view of the recent releases -- default hidden -->
+      <!-- list view of the recent releases  default hidden -->
       <div id="list-view">
         <div class="row">
           <div class="col text-center">
-            <img src="../images/blank-movie.jpg"  style="width: 60%; height: auto; text-align: center; display: inline-block">
+            <img src="../images/blank-movie.jpg"  class="grid-img" style="width: 60%; height: auto; text-align: center; display: inline-block">
           </div>
           <div class="col text-center">
             <p style="float: left; padding-top: 30%;"> This is a movie description</p>
@@ -153,7 +154,7 @@
         </div>
         <div class="row">
           <div class="col text-center">
-            <img src="../images/blank-movie.jpg"  style="width: 60%; height: auto; text-align: center; display: inline-block">
+            <img src="../images/blank-movie.jpg"  class="grid-img" style="width: 60%; height: auto; text-align: center; display: inline-block">
           </div>
           <div class="col text-center">
             <p style="float: left; padding-top: 30%;"> This is a movie description</p>
@@ -161,7 +162,7 @@
         </div>
         <div class="row">
           <div class="col text-center">
-            <img src="../images/blank-movie.jpg"  style="width: 60%; height: auto; text-align: center; display: inline-block">
+            <img src="../images/blank-movie.jpg"  class="grid-img" style="width: 60%; height: auto; text-align: center; display: inline-block">
           </div>
           <div class="col text-center">
             <p style="float: left; padding-top: 30%;"> This is a movie description</p>
@@ -169,7 +170,7 @@
         </div>
         <div class="row">
           <div class="col text-center">
-            <img src="../images/blank-movie.jpg"  style="width: 60%; height: auto; text-align: center; display: inline-block">
+            <img src="../images/blank-movie.jpg"  class="grid-img" style="width: 60%; height: auto; text-align: center; display: inline-block">
           </div>
           <div class="col text-center">
             <p style="float: left; padding-top: 30%;"> This is a movie description</p>
@@ -177,7 +178,7 @@
         </div>
         <div class="row">
           <div class="col text-center">
-            <img src="../images/blank-movie.jpg"  style="width: 60%; height: auto; text-align: center; display: inline-block">
+            <img src="../images/blank-movie.jpg"  class="grid-img" style="width: 60%; height: auto; text-align: center; display: inline-block">
           </div>
           <div class="col text-center">
             <p style="float: left; padding-top: 30%;"> This is a movie description</p>
@@ -185,7 +186,7 @@
         </div>
         <div class="row">
           <div class="col text-center">
-            <img src="../images/blank-movie.jpg"  style="width: 60%; height: auto; text-align: center; display: inline-block">
+            <img src="../images/blank-movie.jpg"  class="grid-img" style="width: 60%; height: auto; text-align: center; display: inline-block">
           </div>
           <div class="col text-center">
             <p style="float: left; padding-top: 30%;"> This is a movie description</p>
@@ -193,7 +194,7 @@
         </div>
         <div class="row">
           <div class="col text-center">
-            <img src="../images/blank-movie.jpg"  style="width: 60%; height: auto; text-align: center; display: inline-block">
+            <img src="../images/blank-movie.jpg" class="grid-img" style="width: 60%; height: auto; text-align: center; display: inline-block">
           </div>
           <div class="col text-center">
             <p style="float: left; padding-top: 30%;"> This is a movie description</p>

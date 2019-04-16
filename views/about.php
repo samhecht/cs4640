@@ -66,6 +66,7 @@
         </div>
         <!-- Log In Forms/Button -->
         <?php
+        // check for user and update html accordingly
           if (strlen($_COOKIE["user"]) < 2){
             echo '<form class="form-inline" id="login_form" method="POST">
               <div class="form-group">
@@ -181,6 +182,7 @@
               <div>
                     <p id="error" style="color: red;"></p>
               </div>
+              <!-- submit the contact form to be emailed -->
               <div class="col-md-12">
                   <input type="submit" class="btn btn-success btn-send" id="contact-submit"/>
 

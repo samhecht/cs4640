@@ -105,8 +105,11 @@ if (gen !== null){
 }
 
 // add event listeners
+
 let login = document.getElementById("login-submit")
-login.addEventListener("click", loginForm, false)
+if (login !== null){
+  login.addEventListener("click", loginForm, false)
+}
 
 
 // tried implementing AJAX to avoid redirecting after logging in, in order to display welcome 'user' message instead of showing the login form again
