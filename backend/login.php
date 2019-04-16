@@ -1,3 +1,6 @@
+<!-- By Johnny Choi and Sammy Hecht -->
+<!-- login users and add them to the database -->
+
 <?php
 // hostname
 $hostname = 'localhost:3306';

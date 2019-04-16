@@ -1,3 +1,6 @@
+<!-- By Johnny Choi and Sammy Hecht -->
+<!-- handle the contact form -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
