@@ -141,10 +141,6 @@ function validateInput(){
 
         $bad = true;
       }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1eac64cfa6279b6b73876d2e86b834de2e6c0849
       return $bad;
     } else {
       echo "the post variables aren't set";

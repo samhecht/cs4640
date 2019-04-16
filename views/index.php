@@ -81,7 +81,7 @@
         </div>
 
         <!-- Log In Forms/Button -->
-        <form class="form-inline" action="../backend/sample.php" method="POST">
+        <form class="form-inline" id="login_form" method="POST">
           <div class="form-group">
             <label class="sr-only" for="email">Email:</label>
             <input name="email" type="email" class ="form-control" id="email" placeholder="Email" autofocus>
@@ -90,7 +90,8 @@
             <label class="sr-only" for="pwd" >Password:</label>
             <input name="pwd" type="password" class="form-control" id="pwd" placeholder="Password">
           </div>
-          <button type="button" class="btn btn-sm btn-primary login-button" id="login-submit">Submit</button>
+<!--          <button type="button" class="btn btn-sm btn-primary login-button" id="login-submit">Submit</button>-->
+          <input type="submit" name="submit" id="login-submit" value="Login"/>
           </form>
           <div>
               <p id="login-error" style="color: red;"></p>
@@ -112,7 +113,12 @@
           <div class="col-lg-12 text-center">
             <form action="index.php">
               <input hidden id="current_movie" name="curr_movie"/>
+              
+              <!-- Generate Movie Button -->
               <input class="btn btn-danger btn-lg" href="#" value="Generate" id="gen"/>
+              
+              <!-- Save Generated Movie Button -->
+              <input class="btn btn-primary btn-lg" href="#" value="Save" id="save" />
             </form>
             <p></p>
           </div>
@@ -174,8 +180,9 @@
     </footer>
 
     <!-- import javascript files -->
+    <?php include '../backend/login.php';?>
     <script src="../scripts/login-script.js"></script>
-    <?php include '../backend/connect-db.php';?>
+
     </body>
 
 

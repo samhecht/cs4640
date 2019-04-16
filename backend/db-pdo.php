@@ -115,7 +115,7 @@ function createTable()
    require('connect-db.php');
 
    $query = "CREATE TABLE user (
-             id INT NOT NULL PRIMARY KEY,
+             id INT AUTO_INCREMENT PRIMARY KEY,
              username VARCHAR(20),
              password VARCHAR(30) NOT NULL)";
    $query2 = "CREATE TABLE movie (

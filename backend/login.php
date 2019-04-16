@@ -1,6 +1,4 @@
 <?php
-
-
 // hostname
 $hostname = 'localhost:3306';
 
@@ -10,30 +8,14 @@ $dbname = 'jc2ar';
 // database credentials
 $username = 'jc2ar';
 $password = 'Coffeeandcigs6$';
-
-// DSN (Data Source Name) specifies the host computer for the MySQL database
-// and the name of the database. If the MySQL database is running on the same server
-// as PHP, use the localhost keyword to specify the host computer
-
 $dsn = "mysql:host=$hostname;dbname=$dbname";
 
-// To connect to a MySQL database named web4640, need three arguments:
-// - specify a DSN, username, and password
-
-// Create an instance of PDO (PHP Data Objects) which connects to a MySQL database
-// (PDO defines an interface for accessing databases)
-// Syntax:
-//    new PDO(dsn, username, password);
-
-
-/** connect to the database **/
-try
+try 
 {
 //  $db = new PDO("mysql:host=$hostname;dbname=$dbname, $username, $password);
    $db = new PDO($dsn, $username, $password);
-
-   // dispaly a message to let us know that we are connected to the database
-//   echo "<p>You are connected to the database</p>";
+   
+   // dispaly a message to let us know that we are connected to the database 
 }
 catch (PDOException $e)     // handle a PDO exception (errors thrown by the PDO library)
 {
@@ -48,4 +30,38 @@ catch (Exception $e)       // handle any type of exception
    echo "<p>Error message: $error_message </p>";
 }
 
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+  if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
+    $user = $_POST['email'];
+    $pwd = $_POST['pwd'];
+    
+//    $_SESSION[user] = $_POST['email'];
+    
+    
+    $query = "INSERT INTO user (id, username, password) VALUES ('last_insert_id', :user, :pwd)";
+
+    $statement = $db->prepare($query);
+    $statement->bindValue(':user', $user);
+    $statement->bindValue(':pwd', $pwd);
+    $statement->execute();
+    $statement->closeCursor();
+    
+
+  }
+}
+
+//    if (isset($_POST['email'])){
+//      $user = $_POST['email'];
+//      setcookie('user', $user, time()+3600);
+//      
+//    }
+//    
+//    if (isset($_COOKIE['user'])) {
+//      
+//      $user = $_COOKIE['user'];
+//      echo "<h1>Welcome $user ! </h1>"
+//    }
+
 ?>
+

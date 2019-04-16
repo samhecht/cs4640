@@ -38,7 +38,7 @@ function loginForm() {
         document.getElementById("email").focus()
     }
     else if (username.includes("@") === false) {
-        document.getElementById("login-error").innerHTML = "Please enter valid email"
+        document.getElementById("login-error").innerHTML = "enter valid email please"
         document.getElementById("email").focus()
     }
     else if (password.length == 0) {
@@ -101,3 +101,23 @@ if (gen !== null){
 // add event listeners
 let login = document.getElementById("login-submit")
 login.addEventListener("click", loginForm, false)
+
+
+// tried implementing AJAX to avoid redirecting after logging in, in order to display welcome 'user' message instead of showing the login form again
+
+//if (login !== null){
+//  echo "hello";
+//  login.addEventListener("click", () => {
+//    var settings = {
+////      "url": "../backend/login.php",
+////      "data": "{}",
+//      "type": "POST",
+//      success: function() {
+//        $('#login_form').html("<div id='message'></div>");
+//        $('#message').html("<h2>Welcome!</h2>");
+//      }
+//    }
+//    $.ajax(settings);
+//  });
+//  return false;
+//}
