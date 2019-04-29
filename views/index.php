@@ -19,6 +19,10 @@
       // if they logged out, reset the cookie and refresh page
       if ($_POST['logout-flag'] == "true"){
         setcookie("user", "n");
+        if (isset($_COOKIE["pass-error"])){
+          // free incorrect password error
+          setcookie("pass-error", "", time() - 3600, "/");
+        }
         header("Location: index.php");
       }
     }
@@ -116,6 +120,17 @@
               <div>
                   <p id="login-error" style="color: red;"></p>
               </div>';
+              if (isset($_COOKIE["pass-error"])){
+                if ($_COOKIE["pass-error"] == "true"){
+                  // wrong password give a message
+                  echo "
+                    <div>
+                      <p id='login-error' style='color: red;'>Incorrect Password</p>
+                    </div>
+                  ";
+                  setcookie("pass-error", "", time() - 3600, "/");
+                }
+              }
 
           } else {
             // if user has been set, welcome them
@@ -129,6 +144,7 @@
               <input type='submit' name='logout' id='logout-submit' value='Logout'/>
             </form>
             ";
+
           }
          ?>
 

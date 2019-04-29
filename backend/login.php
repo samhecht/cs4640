@@ -50,7 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $statement_check->bindValue(':user', $user);
         $statement_check->execute();
 
-        if ($row = $statement_check->fetch(PDO::FETCH_ASSOC)) {
+        $row = $statement_check->fetch(PDO::FETCH_ASSOC);
+
+
+        if ($row == true) {
           $usernameExists = 1;
         } else {
           $usernameExists = 0;
@@ -66,14 +69,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
           $statement->execute();
           $statement->closeCursor();
 
-        } 
-
-
-        $cookie_value = $user;
-        // set a cookie to track the user up to 5 days
-        setcookie("user", $cookie_value);
-        header("Location: " . $_SERVER["HTTP_REFERER"]);
-
+        } else {
+          // username exists check Password
+          $associated_pass = $row['password'];
+          if ($associated_pass != $pwd){
+            // incorrect password tell them
+            // set cookie so we can do some error handling
+            setcookie("pass-error", "true", time() + 1000, "/");
+            header("Location: " . $_SERVER["HTTP_REFERER"]);
+          } else {
+            // username exists and the password is correct
+            $cookie_value = $user;
+            // set a cookie to track the user up to 5 days
+            setcookie("user", $cookie_value);
+            if (isset($_COOKIE["pass-error"])){
+              setcookie("pass-error", "", time() - 3600, "/");
+            }
+            header("Location: " . $_SERVER["HTTP_REFERER"]);
+          }
+        }
       }
     }
   }
