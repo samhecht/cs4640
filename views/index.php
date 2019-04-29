@@ -170,7 +170,68 @@
           } else {
             // save the current movie to the sessions superglobal
             array_push($_SESSION["movies"], $_GET["curr_movie"]);
-            
+
+            // put the movie in the database
+            $hostname = 'localhost:3306';
+
+            // database name
+            $dbname = 'sammyH';
+
+            // database credentials
+            $username = 'sammyH';
+            $password = 'db-pass';
+            $dsn = "mysql:host=$hostname;dbname=$dbname";
+
+            try
+            {
+            //  $db = new PDO("mysql:host=$hostname;dbname=$dbname, $username, $password);
+               $db = new PDO($dsn, $username, $password);
+
+            }
+            catch (PDOException $e)     // handle a PDO exception (errors thrown by the PDO library)
+            {
+               // Call a method from any object, use the object's name followed by -> and then method's name
+               // All exception objects provide a getMessage() method that returns the error message
+               $error_message = $e->getMessage();
+               echo "<p>An error occurred while connecting to the database: $error_message </p>";
+            }
+            catch (Exception $e)       // handle any type of exception
+            {
+               $error_message = $e->getMessage();
+               echo "<p>Error message: $error_message </p>";
+            }
+            if (isset($_COOKIE['user'])){
+              if (strlen($_COOKIE['user']) > 2){
+                // fetch userid
+                $this_user = $_COOKIE['user'];
+                $currUser = "SELECT * FROM user WHERE username = :user";
+                $stateUser = $db->prepare($currUser);
+                $stateUser->bindValue(':user', $this_user);
+                $stateUser->execute();
+
+                // get row for this user
+                $row = $stateUser->fetch(PDO::FETCH_ASSOC);
+
+                $user_id = $row['id'];
+                $stateUser->closeCursor();
+
+                $movie_id = $_GET['curr_movie'];
+                if (strlen($movie_id) > 0){
+                  // insert movie id into the users table
+                  $insert_movie = "INSERT into user_movie (user_id, movie_name) VALUES (:userid, :movieid)";
+                  $ins_mov_state = $db->prepare($insert_movie);
+                  $ins_mov_state->bindValue(':userid', $user_id);
+                  $ins_mov_state->bindValue(':movieid', $movie_id);
+                  $ins_mov_state->execute();
+                  $ins_mov_state->closeCursor();
+                }
+
+
+
+              }
+            }
+
+
           }
         }
       }

@@ -69,6 +69,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
           $statement->execute();
           $statement->closeCursor();
 
+          $cookie_value = $user;
+          // set a cookie to track the user up to 5 days
+          setcookie("user", $cookie_value);
+          if (isset($_COOKIE["pass-error"])){
+            setcookie("pass-error", "", time() - 3600, "/");
+          }
+          header("Location: " . $_SERVER["HTTP_REFERER"]);
         } else {
           // username exists check Password
           $associated_pass = $row['password'];
