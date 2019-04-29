@@ -101,43 +101,43 @@
         <div class="row" id="developer">
           <div class="col text-center">
             <img src="../images/blank-movie.jpg" class="grid-img">
-            <p> This is a movie description </p>
+            <p class="mov-desc"> This is a movie description </p>
           </div>
           <div class="col text-center">
             <img src="../images/blank-movie.jpg" class="grid-img">
-            <p> This is a movie description </p>
+            <p class="mov-desc"> This is a movie description </p>
           </div>
           <div class="col text-center">
             <img src="../images/blank-movie.jpg" class="grid-img">
-            <p> This is a movie description </p>
+            <p class="mov-desc">  This is a movie description </p>
           </div>
         </div>
         <div class="row" id="developer2">
           <div class="col text-center">
             <img src="../images/blank-movie.jpg" class="grid-img">
-            <p> This is a movie description </p>
+            <p class="mov-desc"> This is a movie description </p>
           </div>
           <div class="col text-center">
             <img src="../images/blank-movie.jpg" class="grid-img">
-            <p> This is a movie description </p>
+            <p class="mov-desc"> This is a movie description </p>
           </div>
           <div class="col text-center">
             <img src="../images/blank-movie.jpg" class="grid-img">
-            <p> This is a movie description </p>
+            <p class="mov-desc"> This is a movie description </p>
           </div>
         </div>
         <div class="row" id="developer3">
           <div class="col text-center">
             <img src="../images/blank-movie.jpg" class="grid-img">
-            <p> This is a movie description </p>
+            <p class="mov-desc"> This is a movie description </p>
           </div>
           <div class="col text-center">
             <img src="../images/blank-movie.jpg" class="grid-img">
-            <p> This is a movie description </p>
+            <p class="mov-desc"> This is a movie description </p>
           </div>
           <div class="col text-center">
             <img src="../images/blank-movie.jpg" class="grid-img">
-            <p> This is a movie description </p>
+            <p class="mov-desc"> This is a movie description </p>
           </div>
         </div>
       </div>
@@ -149,7 +149,7 @@
             <img src="../images/blank-movie.jpg"  class="grid-img" style="width: 60%; height: auto; text-align: center; display: inline-block">
           </div>
           <div class="col text-center">
-            <p style="float: left; padding-top: 30%;"> This is a movie description</p>
+            <p class="mov-desc" style="float: left; padding-top: 30%;"> This is a movie description</p>
           </div>
         </div>
         <div class="row">
@@ -157,7 +157,7 @@
             <img src="../images/blank-movie.jpg"  class="grid-img" style="width: 60%; height: auto; text-align: center; display: inline-block">
           </div>
           <div class="col text-center">
-            <p style="float: left; padding-top: 30%;"> This is a movie description</p>
+            <p class="mov-desc" style="float: left; padding-top: 30%;"> This is a movie description</p>
           </div>
         </div>
         <div class="row">
@@ -165,7 +165,7 @@
             <img src="../images/blank-movie.jpg"  class="grid-img" style="width: 60%; height: auto; text-align: center; display: inline-block">
           </div>
           <div class="col text-center">
-            <p style="float: left; padding-top: 30%;"> This is a movie description</p>
+            <p class="mov-desc" style="float: left; padding-top: 30%;"> This is a movie description</p>
           </div>
         </div>
         <div class="row">
@@ -173,7 +173,7 @@
             <img src="../images/blank-movie.jpg"  class="grid-img" style="width: 60%; height: auto; text-align: center; display: inline-block">
           </div>
           <div class="col text-center">
-            <p style="float: left; padding-top: 30%;"> This is a movie description</p>
+            <p class="mov-desc" style="float: left; padding-top: 30%;"> This is a movie description</p>
           </div>
         </div>
         <div class="row">
@@ -181,7 +181,7 @@
             <img src="../images/blank-movie.jpg"  class="grid-img" style="width: 60%; height: auto; text-align: center; display: inline-block">
           </div>
           <div class="col text-center">
-            <p style="float: left; padding-top: 30%;"> This is a movie description</p>
+            <p class="mov-desc" style="float: left; padding-top: 30%;"> This is a movie description</p>
           </div>
         </div>
         <div class="row">
@@ -189,7 +189,7 @@
             <img src="../images/blank-movie.jpg"  class="grid-img" style="width: 60%; height: auto; text-align: center; display: inline-block">
           </div>
           <div class="col text-center">
-            <p style="float: left; padding-top: 30%;"> This is a movie description</p>
+            <p class="mov-desc" style="float: left; padding-top: 30%;"> This is a movie description</p>
           </div>
         </div>
         <div class="row">
@@ -197,7 +197,7 @@
             <img src="../images/blank-movie.jpg" class="grid-img" style="width: 60%; height: auto; text-align: center; display: inline-block">
           </div>
           <div class="col text-center">
-            <p style="float: left; padding-top: 30%;"> This is a movie description</p>
+            <p class="mov-desc" style="float: left; padding-top: 30%;"> This is a movie description</p>
           </div>
         </div>
       </div>
@@ -254,6 +254,7 @@
 
 
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../scripts/release-scripts.js"></script>
     </body>
 </html>

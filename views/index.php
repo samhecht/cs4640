@@ -170,6 +170,7 @@
           } else {
             // save the current movie to the sessions superglobal
             array_push($_SESSION["movies"], $_GET["curr_movie"]);
+            
           }
         }
       }

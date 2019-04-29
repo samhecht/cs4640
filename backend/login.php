@@ -53,10 +53,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $row = $statement_check->fetch(PDO::FETCH_ASSOC);
 
 
-        if ($row == true) {
-          $usernameExists = 1;
-        } else {
+        if ($row == false) {
           $usernameExists = 0;
+        } else {
+          $usernameExists = 1;
         }
         $statement_check->closeCursor();
 

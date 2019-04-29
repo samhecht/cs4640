@@ -65,45 +65,45 @@ function loginForm() {
 let gen = document.getElementById("gen")
 // make sure the button exists
 if (gen !== null){
-  // call anonymous arrow function
-  //gen.addEventListener("click", () => {
     // random number for movie
-    var num = Math.floor(Math.random() * 2000)
-    num = num.toString()
-    // create settings for ajax request
-    var settings = {
-      "async": true,
-      "crossDomain": true,
-      "url": "https://api.themoviedb.org/3/movie/" + num + "?language=en-US&api_key=53ba7831b31ceda4cde1c4e8db70ba41",
-      "method": "GET",
-      "headers": {},
-      "data": "{}"
-    }
+      var num = Math.floor(Math.random() * 2000)
+      num = num.toString()
+      // create settings for ajax request
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://api.themoviedb.org/3/movie/" + num + "?language=en-US&api_key=53ba7831b31ceda4cde1c4e8db70ba41",
+        "method": "GET",
+        "headers": {},
+        "data": "{}"
+      }
 
 
-    let desc = document.getElementById("movie-desc")
-    var base_url = "https://image.tmdb.org/t/p/w500/"
+      let desc = document.getElementById("movie-desc")
+      var base_url = "https://image.tmdb.org/t/p/w500/"
 
-    // request the movie api with a random movie
-    $.ajax(settings).done(function (response) {
-      let name = response.original_title;
-      let url = base_url + response.poster_path
+      // request the movie api with a random movie
+      $.ajax(settings).done(function (response) {
+        let name = response.original_title;
+        let url = base_url + response.poster_path
 
-      // update the movie name and image
-      let pic = document.getElementById("movie-pic")
-      pic.src = url;
-      desc.innerHTML = name;
+        // update the movie name and image
+        let pic = document.getElementById("movie-pic")
+        pic.src = url;
+        desc.innerHTML = name;
 
-      let get_name = document.getElementById("movie_title")
-      let get_img = document.getElementById("movie_img")
+        let get_name = document.getElementById("movie_title")
+        let get_img = document.getElementById("movie_img")
 
-      get_name.value = name
-      get_img.value = url
+        get_name.value = name
+        get_img.value = url
 
-      let html_number = document.getElementById("current_movie")
-      html_number.value = num
-    });
-  //})
+        let html_number = document.getElementById("current_movie")
+        html_number.value = num
+
+      });
+
+
 }
 
 function logoutUser() {
