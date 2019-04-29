@@ -2,6 +2,8 @@
 <!-- login users and add them to the database -->
 
 <?php
+
+
 // hostname
 $hostname = 'localhost:3306';
 
@@ -34,52 +36,48 @@ catch (Exception $e)       // handle any type of exception
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-  if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
-    $user = $_POST['email'];
-    $pwd = $_POST['pwd'];
+  if (isset($_POST['login-flag'])){
+    if ($_POST['login-flag'] == "true"){
+      if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
+
+        $user = $_POST['email'];
+        $pwd = $_POST['pwd'];
 
 
-    $usernameExists = 0;
-    $check = "SELECT * FROM user WHERE username = :user";
-    $statement_check = $db->prepare($check);
-    $statement_check->bindValue(':user', $user);
-    $statement_check->execute();
+        $usernameExists = 0;
+        $check = "SELECT * FROM user WHERE username = :user";
+        $statement_check = $db->prepare($check);
+        $statement_check->bindValue(':user', $user);
+        $statement_check->execute();
 
-    if ($row = $statement_check->fetch(PDO::FETCH_ASSOC)) {
-      $usernameExists = 1;
-    } else {
-      $usernameExists = 0;
+        if ($row = $statement_check->fetch(PDO::FETCH_ASSOC)) {
+          $usernameExists = 1;
+        } else {
+          $usernameExists = 0;
+        }
+        $statement_check->closeCursor();
+
+        if ($usernameExists === 0) {
+          $query = "INSERT INTO user (id, username, password) VALUES ('last_insert_id', :user, :pwd)";
+
+          $statement = $db->prepare($query);
+          $statement->bindValue(':user', $user);
+          $statement->bindValue(':pwd', $pwd);
+          $statement->execute();
+          $statement->closeCursor();
+
+        } 
+
+
+        $cookie_value = $user;
+        // set a cookie to track the user up to 5 days
+        setcookie("user", $cookie_value);
+        header("Location: " . $_SERVER["HTTP_REFERER"]);
+
+      }
     }
-    $statement_check->closeCursor();
-
-    if ($usernameExists === 0) {
-      $query = "INSERT INTO user (id, username, password) VALUES ('last_insert_id', :user, :pwd)";
-
-      $statement = $db->prepare($query);
-      $statement->bindValue(':user', $user);
-      $statement->bindValue(':pwd', $pwd);
-      $statement->execute();
-      $statement->closeCursor();
-
-    }
-
-
-    $cookie_value = $user;
-    // set a cookie to track the user up to 5 days
-    setcookie("user", $cookie_value);
   }
 }
 
-//    if (isset($_POST['email'])){
-//      $user = $_POST['email'];
-//      setcookie('user', $user, time()+3600);
-//
-//    }
-//
-//    if (isset($_COOKIE['user'])) {
-//
-//      $user = $_COOKIE['user'];
-//      echo "<h1>Welcome $user ! </h1>"
-//    }
 
 ?>

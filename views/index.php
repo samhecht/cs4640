@@ -2,10 +2,32 @@
 <!-- home page for the site -> will refactor the name later -->
 
 <?php
-  session_start();
-  setcookie("user", "n", time() + (86400 * 5), "/");
+  // start a session if there isn't already a session running
+  if (session_status() !== PHP_SESSION_ACTIVE){
+    session_start();
+  }
+
 ?>
-<?php include '../backend/login.php';?>
+<?php
+  if (!isset($_COOKIE['user'])){
+    setcookie("user", "n", time() + (86400 * 5), "/");
+    header("Location: index.php");
+  }
+  // mainly checking for logout
+  if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if (isset($_POST['logout-flag'])){
+      // if they logged out, reset the cookie and refresh page
+      if ($_POST['logout-flag'] == "true"){
+        setcookie("user", "n");
+        header("Location: index.php");
+      }
+    }
+  }
+?>
+
+<?php
+  include '../backend/login.php';
+?>
 
 
 <!-- some of the bootstrap is inspired from this tutorial on the
@@ -77,8 +99,8 @@
         <?php
         // if user hasn't been set, supply a login form
 
-          if (strlen($_COOKIE["user"]) < 2){
-            echo '<form class="form-inline" id="login_form" method="POST">
+          if (strlen($_COOKIE['user']) < 2){
+            echo '<form class="form-inline" id="login_form" onsubmit="shouldLogin()" method="POST" action="index.php">
               <div class="form-group">
                 <label class="sr-only" for="email">Email:</label>
                 <input name="email" type="email" class ="form-control" id="email" placeholder="Email" autofocus>
@@ -88,6 +110,7 @@
                 <input name="pwd" type="password" class="form-control" id="pwd" placeholder="Password">
               </div>
     <!--          <button type="button" class="btn btn-sm btn-primary login-button" id="login-submit">Submit</button>-->
+              <input type="hidden" name="login-flag" id="login-flag" value="false"/>
               <input type="submit" name="submit" id="login-submit" value="Login"/>
               </form>
               <div>
@@ -99,7 +122,13 @@
             $user = $_COOKIE['user'];
             echo "<li class='nav-item'>
               <p class='nav-link' style='color: white;'>Welcome $user</p>
-            </li>";
+            </li>
+            <!-- try to get logout working first -->
+            <form id='logout_form' onsubmit='logoutUser()' method='POST' action='index.php'>
+              <input type='hidden' name='logout-flag' id='logout-flag' value='false'/>
+              <input type='submit' name='logout' id='logout-submit' value='Logout'/>
+            </form>
+            ";
           }
          ?>
 

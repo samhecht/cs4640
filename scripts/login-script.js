@@ -52,7 +52,9 @@ function loginForm() {
 //        document.getElementById("email").value = ""
 //        document.getElementById("pwd").value = ""
         document.getElementById("login-error").innerHTML = "Successfully Logged In"
+        return true
     }
+    return false
 
 
 }
@@ -104,29 +106,25 @@ if (gen !== null){
   //})
 }
 
-// add event listeners
+function logoutUser() {
+  let logout = document.getElementById("logout-flag");
+  // set logout to true so our php can reset the cookie.
+  logout.value = "true";
+  return true;
+}
 
+function shouldLogin() {
+  let loginFlag = document.getElementById("login-flag");
+  loginFlag.value = "true";
+  return loginForm();
+}
+
+// add event listeners
+/*
 let login = document.getElementById("login-submit")
 if (login !== null){
   login.addEventListener("click", loginForm, false)
+  // add some checking for if our php should run
+
 }
-
-
-// tried implementing AJAX to avoid redirecting after logging in, in order to display welcome 'user' message instead of showing the login form again
-
-//if (login !== null){
-//  echo "hello";
-//  login.addEventListener("click", () => {
-//    var settings = {
-////      "url": "../backend/login.php",
-////      "data": "{}",
-//      "type": "POST",
-//      success: function() {
-//        $('#login_form').html("<div id='message'></div>");
-//        $('#message').html("<h2>Welcome!</h2>");
-//      }
-//    }
-//    $.ajax(settings);
-//  });
-//  return false;
-//}
+*/
