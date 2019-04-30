@@ -34,7 +34,7 @@ try
 //   echo "<p>You are connected to the database</p>";
 }
 catch (PDOException $e)     // handle a PDO exception (errors thrown by the PDO library)
-{
+{ 
    // Call a method from any object, use the object's name followed by -> and then method's name
    // All exception objects provide a getMessage() method that returns the error message
    $error_message = $e->getMessage();
@@ -46,19 +46,19 @@ catch (Exception $e)       // handle any type of exception
    echo "<p>Error message: $error_message </p>";
 }
 
-$query = "SELECT * FROM user_movie";
-$statement = $db->prepare($query);
-$statement->execute();
-$results = $statement->fetchAll();
-$statement->closeCursor();
-
-$request2 = json_decode($results);
-$data2 = [];
-foreach ($request as $k => $v)
-{
-   $data2[0]['get'.$k] = $v;
-}
-echo json_encode(['content'=>$data2]);
+// $query = "SELECT * FROM user_movie";
+// $statement = $db->prepare($query);
+// $statement->execute();
+// $results = $statement->fetchAll();
+// $statement->closeCursor();
+//
+// $request2 = json_decode($results);
+// $data2 = [];
+// foreach ($request as $k => $v)
+// {
+//    $data2[0]['get'.$k] = $v;
+// }
+// echo json_encode(['content'=>$data2]);
 
 // try commenting out the header setting to experiment how the back end refuses the request
 header('Access-Control-Allow-Origin: http://localhost:4200');

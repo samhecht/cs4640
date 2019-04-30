@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
   responsedata = 'response data';
 
   // drinks = ['Coffee', 'Tea', 'Milk'];
-  signupModel = new Signup('Johnny', 'Choi', 'duh@uva.edu', '9991234567');
+  signupModel = new Signup('', '', '', '');
 
   constructor(private http: HttpClient) {
     // private formBuilder: FormBuilder
@@ -32,17 +32,16 @@ export class SignupComponent implements OnInit {
     //   password: ['', [Validators.required, Validators.minLength(6)]]
     // });
   }
-  senddata() {
-     // console.log(data);
-     // console.log(this.signupForm.firstName);
-     // let params = JSON.stringify(data);
+  senddata(data) {
+     console.log(data);
+     let params = JSON.stringify(data);
 
-     // this.http.post('http://localhost/4200/ngphp-post.php', {firstName: this.firstName})
-     // .subscribe((data) => {
-     //    console.log('Got data from backend', data);
-     //    this.responsedata = data;
-     // }, (error) => {
-     //    console.log('Error', error);
-     // })
+     this.http.post('http://localhost/4200/ngphp-post.php', data)
+     .subscribe((data) => {
+        console.log('Got data from backend', data);
+        this.responsedata = data;
+     }, (error) => {
+        console.log('Error', error);
+     })
   }
 }

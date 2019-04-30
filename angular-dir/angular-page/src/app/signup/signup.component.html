@@ -1,5 +1,6 @@
 <!-- <p>hello</p> -->
 {{ signupModel | json }}
+{{ responsedata | json }}
 <form #orderForm="ngForm" (ngSubmit)="senddata(); orderForm.reset();">
   <div class="form-group">
     <label>First Name: </label>
@@ -20,6 +21,7 @@
   <div class="form-group">
     <label>Email: </label>
     <input [(ngModel)]="signupModel.email" type="email" class="form-control" name="email">
+    <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched">Email is requried</small>
   </div>
 
   <div class="form-group">
@@ -31,5 +33,5 @@
     <small class="text-danger" [class.d-none]="password.valid">Password is required</small>
   </div>
 
-  <button class="btn btn-primary" (click)="senddata(orderForm.value)">Sign Up</button>
+  <button class="btn btn-primary" (click)="senddata(signupForm.value)">Sign Up</button>
 </form>
