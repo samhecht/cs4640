@@ -65,6 +65,7 @@ $query->closeCursor();
 if ($row != false){
   // email already exists throw error
   echo "<p style='color: red;'>Email already taken</p>";
+  $data[0]['stat'] = 'error';
 } else {
 
   // we're good make a new user
@@ -76,7 +77,13 @@ if ($row != false){
   $insert->closeCursor();
 
   // set user cookie to sign them in
-  setcookie("user", $email, time() + (86000 * 5), '/');
+  if (!isset($_COOKIE['user'])){
+    setcookie('user', $email, time() + (86000 * 5), '/');
+  } else {
+    setcookie('user', $email);
+  }
+
+  data[0]['stat'] = 'good';
 }
 
 
