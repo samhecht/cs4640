@@ -106,8 +106,9 @@ function fixupReleases(){
 
 
 generateReleases();
-let update = 1;
 
+fixupReleases();
+fixupReleases();
 /*
 for (let i = 0; i < 20; i++){
   fixupReleases();

@@ -8,11 +8,11 @@
 $hostname = 'localhost:3306';
 
 // database name
-$dbname = 'jc2ar';
+$dbname = 'sammyH';
 
 // database credentials
-$username = 'jc2ar';
-$password = 'Coffeeandcigs6$';
+$username = 'sammyH';
+$password = 'db-pass';
 $dsn = "mysql:host=$hostname;dbname=$dbname";
 
 try

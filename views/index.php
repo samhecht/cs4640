@@ -102,7 +102,6 @@
         <!-- Log In Forms/Button -->
         <?php
         // if user hasn't been set, supply a login form
-
           if (strlen($_COOKIE['user']) < 2){
             echo '<form class="form-inline" id="login_form" onsubmit="shouldLogin()" method="POST" action="index.php">
               <div class="form-group">
@@ -144,7 +143,6 @@
               <input type='submit' name='logout' id='logout-submit' value='Logout'/>
             </form>
             ";
-
           }
          ?>
 
@@ -175,11 +173,11 @@
             $hostname = 'localhost:3306';
 
             // database name
-            $dbname = 'jc2ar';
+            $dbname = 'sammyH';
 
             // database credentials
-            $username = 'jc2ar';
-            $password = 'Coffeeandcigs6$';
+            $username = 'sammyH';
+            $password = 'db-pass';
             $dsn = "mysql:host=$hostname;dbname=$dbname";
 
             try
