@@ -48,6 +48,7 @@ function loginForm() {
     else if (validPassword === false){
         document.getElementById("login-error").innerHTML = "Please enter valid password"
         document.getElementById("pwd").focus()
+        
     } else {
 //        document.getElementById("email").value = ""
 //        document.getElementById("pwd").value = ""
