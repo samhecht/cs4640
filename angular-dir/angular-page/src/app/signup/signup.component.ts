@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Signup } from '../signup';
+// import { SignupService } from '../SignupService';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
@@ -19,7 +20,8 @@ export class SignupComponent implements OnInit {
   responsedata = 'response data';
 
   // drinks = ['Coffee', 'Tea', 'Milk'];
-  signupModel = new Signup('johnny', 'choi', 'jc2ar@virginia.edu', 'Coffeeandcigs6$');
+  signupModel: Signup[];
+  // signupModel = new Signup('johnny', 'choi', 'jc2ar@virginia.edu', 'Coffeeandcigs6$');
 
   constructor(private http: HttpClient) {
     // private formBuilder: FormBuilder
@@ -36,14 +38,14 @@ export class SignupComponent implements OnInit {
   senddata(data) {
       console.log("hello");
      console.log(data);
-     // let params = JSON.stringify(data);
-
-     this.http.post('http://localhost/4200/app/ngphp-post.php', data)
-     // .subscribe((data) => {
-     //    console.log('Got data from backend', data);
-     //    this.responsedata = data;
-     // }, (error) => {
-     //    console.log('Error', error);
-     // })
+     let params = JSON.stringify(data);
+     console.log(params);
+     this.http.post<string>('http://localhost/4200/ngphp-post.php', data)
+     .subscribe((data) => {
+        console.log('Got data from backend', data);
+        this.responsedata = data;
+     }, (error) => {
+        console.log('Error', error);
+     })
   }
 }

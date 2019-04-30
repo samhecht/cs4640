@@ -1,12 +1,12 @@
 // import { TestBed } from '@angular/core/testing';
 //
-// import { HeroService } from './hero.service';
+// import { SignupService } from './signup.service';
 //
-// describe('HeroService', () => {
+// describe('SignupService', () => {
 //   beforeEach(() => TestBed.configureTestingModule({}));
 //
 //   it('should be created', () => {
-//     const service: HeroService = TestBed.get(HeroService);
+//     const service: SignupService = TestBed.get(SignupService);
 //     expect(service).toBeTruthy();
 //   });
 // });
