@@ -12,6 +12,7 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 })
 export class SignupComponent implements OnInit {
   title = 'Signup Page';
+  /*
   signupForm: FormGroup;
   formBuilder: FormBuilder;
 
@@ -19,13 +20,15 @@ export class SignupComponent implements OnInit {
   // and try binding it back to the view
   responsedata = 'response data';
 
-  // drinks = ['Coffee', 'Tea', 'Milk'];
+
   signupModel: Signup[];
-  // signupModel = new Signup('johnny', 'choi', 'jc2ar@virginia.edu', 'Coffeeandcigs6$');
+  */
+  signupModel = new Signup('', '', '', '');
+  responsedata = 'response data';
 
   constructor(private http: HttpClient) {
     // private formBuilder: FormBuilder
-}
+  }
 
   ngOnInit() {
     // this.signupForm = this.formBuilder.group({
@@ -36,11 +39,12 @@ export class SignupComponent implements OnInit {
     // });
   }
   senddata(data) {
-      console.log("hello");
-     console.log(data);
+     console.log("hello");
+     //console.log(data);
      let params = JSON.stringify(data);
      console.log(params);
-     this.http.post<string>('http://localhost/4200/ngphp-post.php', data)
+     // no <string>
+     this.http.post<string>('http://localhost/cs4640/cs4640/backend/ngphp-post.php', params)
      .subscribe((data) => {
         console.log('Got data from backend', data);
         this.responsedata = data;
