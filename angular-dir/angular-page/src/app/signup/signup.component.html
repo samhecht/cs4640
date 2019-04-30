@@ -1,7 +1,7 @@
 <!-- <p>hello</p> -->
 {{ signupModel | json }}
 {{ responsedata | json }}
-<form #orderForm="ngForm" (ngSubmit)="senddata(); orderForm.reset();">
+<form #signupForm="ngForm" (ngSubmit)="senddata(); signupForm.reset();">
   <div class="form-group">
     <label>First Name: </label>
     <input required #firstName="ngModel"
