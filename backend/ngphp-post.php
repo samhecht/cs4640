@@ -4,24 +4,6 @@
 header('Access-Control-Allow-Origin: http://localhost:4200');
 header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding');
 
-// $data = (int) $_SERVER['CONTENT_LENGTH'];
-
-// retrieve data from the request
-$postdata = file_get_contents("php://input");
-
-// process data
-// (this example simply extracts the data and restructures them back)
-$request = json_decode($postdata);
-
-$data = [];
-foreach ($request as $k => $v)
-{
-  $data[0][$k] = $v;
-}
-
-$email = $data[0]['email'];
-$pwd = $data[0]['password'];
-
 // hostname
 $hostname = 'localhost:3306';
 
@@ -51,14 +33,33 @@ catch (Exception $e)       // handle any type of exception
    $error_message = $e->getMessage();
    echo "<p>Error message: $error_message </p>";
 }
+// $data = (int) $_SERVER['CONTENT_LENGTH'];
+
+// retrieve data from the request
+$postdata = file_get_contents("php://input");
+
+// process data
+// (this example simply extracts the data and restructures them back)
+$request = json_decode($postdata);
+
+$data = [];
+foreach ($request as $k => $v)
+{
+  $data[0][$k] = $v;
+}
+
+$email = $data[0]['email'];
+$pwd = $data[0]['password'];
+
+
 
 // make sure email isn't taken already
 $query_prep = "SELECT from user WHERE username = :user";
 $query = $db->prepare($query_prep);
 $query->bindValue(':user', $email);
-$query->exectute();
+$query->execute();
 
-$row = $query->fetch(PDO:FETCH_ASSOC);
+$row = $query->fetch(PDO::FETCH_ASSOC);
 $query->closeCursor();
 
 if ($row != false){
