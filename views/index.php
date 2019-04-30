@@ -116,6 +116,7 @@
     <!--          <button type="button" class="btn btn-sm btn-primary login-button" id="login-submit">Submit</button>-->
               <input type="hidden" name="login-flag" id="login-flag" value="false"/>
               <input type="submit" name="submit" id="login-submit" value="Login"/>
+              <input onclick="localhost:4200" type="submit" class="button_active" name="signup" id="signup-submit" value="Signup"/>
               </form>
               <div>
                   <p id="login-error" style="color: red;"></p>
