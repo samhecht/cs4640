@@ -1,7 +1,5 @@
 <?php
 
-
-// hostname
 $hostname = 'localhost:3306';
 
 // database name
@@ -47,5 +45,41 @@ catch (Exception $e)       // handle any type of exception
    $error_message = $e->getMessage();
    echo "<p>Error message: $error_message </p>";
 }
+
+$query = "SELECT * FROM user_movie";
+$statement = $db->prepare($query);
+$statement->execute();
+$results = $statement->fetchAll();
+$statement->closeCursor();
+
+$request2 = json_decode($results);
+$data2 = [];
+foreach ($request as $k => $v)
+{
+   $data2[0]['get'.$k] = $v;
+}
+echo json_encode(['content'=>$data2]);
+
+// try commenting out the header setting to experiment how the back end refuses the request
+header('Access-Control-Allow-Origin: http://localhost:4200');
+header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding');
+
+// $data = (int) $_SERVER['CONTENT_LENGTH'];
+
+// retrieve data from the request
+$postdata = file_get_contents("php://input");
+
+// process data
+// (this example simply extracts the data and restructures them back)
+$request = json_decode($postdata);
+
+$data = [];
+foreach ($request as $k => $v)
+{
+  $data[0][$k] = $v;
+}
+
+// sent response (in json format) back to the front end
+echo json_encode(['content'=>$data]);
 
 ?>
