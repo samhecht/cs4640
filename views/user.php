@@ -98,10 +98,86 @@
 
 <?php
   if (isset($_COOKIE['user'])){
-    if (strlen($_COOKIE['user'] > 2)){
-      if (isset($_SESSION['movies'])){
-        
+    if (strlen($_COOKIE['user']) > 2){
+      $movies = [];
+      // connect to database
+      $hostname = 'localhost:3306';
+
+      // database name
+      $dbname = 'sammyH';
+
+      // database credentials
+      $username = 'sammyH';
+      $password = 'db-pass';
+      $dsn = "mysql:host=$hostname;dbname=$dbname";
+
+      try
+      {
+      //  $db = new PDO("mysql:host=$hostname;dbname=$dbname, $username, $password);
+         $db = new PDO($dsn, $username, $password);
+
       }
+      catch (PDOException $e)     // handle a PDO exception (errors thrown by the PDO library)
+      {
+         // Call a method from any object, use the object's name followed by -> and then method's name
+         // All exception objects provide a getMessage() method that returns the error message
+         $error_message = $e->getMessage();
+         echo "<p>An error occurred while connecting to the database: $error_message </p>";
+      }
+      catch (Exception $e)       // handle any type of exception
+      {
+         $error_message = $e->getMessage();
+         echo "<p>Error message: $error_message </p>";
+      }
+
+      // get user id
+      $id_prepare = "SELECT from user WHERE username = :user";
+      $id_ex = $db->prepare($id_prepare);
+      $id_ex->bindValue(':user', $_COOKIE['user']);
+      $id_ex->execute();
+
+      $user_row = $id_ex->fetch(PDO::FETCH_ASSOC);
+      $user_id = $user_row['id'];
+      
+      $id_ex->closeCursor();
+
+      $movie_prepare = "SELECT from user_movie WHERE user_id = :uid";
+      $movie_ex = $db->prepare($movie_prepare);
+      $movie_ex->bindValue(':uid', $user_id);
+      $movie_ex->execute();
+
+
+
+      $rows = $id_ex->fetchAll();
+      $id_ex->closeCursor();
+      // save every movie id
+      foreach($rows as $key => $movieNum){
+        array_push($movies, $movieNum);
+      }
+
+
+
+
+        echo "
+        <div id='list-view'>
+        ";
+        //insert movie id with img so we can fix in our js
+        foreach($movies as $movieId){
+          echo "
+          <div class='row'>
+            <div class='col text-center'>
+              <img src='$movieId'  class='grid-img' style='width: 60%; height: auto; text-align: center; display: inline-block'>
+            </div>
+            <div class='col text-center'>
+              <p class='mov-desc' style='float: left; padding-top: 30%;'> This is a movie description</p>
+            </div>
+          </div>
+          ";
+        }
+        echo "
+        </div>
+        ";
+
     } else {
       echo "<h1>Please login to see your previous movies</h1>";
     }
@@ -109,6 +185,7 @@
     echo "<h1>Please login to see your previous movies</h1>";
   }
  ?>
+ <script src="../scripts/user-scripts.js"></script>
 
 
 
