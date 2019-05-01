@@ -115,12 +115,13 @@
               <input type="hidden" name="login-flag" id="login-flag" value="false"/>
               <input type="submit" name="submit" id="login-submit" value="Login"/>
 
-              
+
+
+            <!--  <input onclick="location.href=http://localhost:4200;" type="button" class="button_active" name="signup" id="signup-submit" value="Signup"/> -->
+
+              </form>
               <form action="http://localhost:4200">
                 <input type="submit" value="Register"/>
-              </form>
-              <input onclick="location.href='http://localhost:4200';" type="button" class="button_active" name="signup" id="signup-submit" value="Signup"/>
-
               </form>
               <div>
                   <p id="login-error" style="color: red;"></p>
@@ -179,11 +180,11 @@
             $hostname = 'localhost:3306';
 
             // database name
-            $dbname = 'jc2ar';
+            $dbname = 'sammyH';
 
             // database credentials
-            $username = 'jc2ar';
-            $password = 'Coffeeandcigs6$';
+            $username = 'sammyH';
+            $password = 'db-pass';
             $dsn = "mysql:host=$hostname;dbname=$dbname";
 
             try
