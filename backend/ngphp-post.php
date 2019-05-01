@@ -8,11 +8,11 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 $hostname = 'localhost:3306';
 
 // database name
-$dbname = 'jc2ar';
+$dbname = 'sammyH';
 
 // database credentials
-$username = 'jc2ar';
-$password = 'Coffeeandcigs6$';
+$username = 'sammyH';
+$password = 'db-pass';
 $dsn = "mysql:host=$hostname;dbname=$dbname";
 
 try
@@ -65,7 +65,7 @@ $query->closeCursor();
 if ($row != false){
   // email already exists throw error
   echo "<p style='color: red;'>Email already taken</p>";
-  $data[0]['stat'] = 'error';
+  $data += array('stat' => 'error');
 } else {
 
   // we're good make a new user
@@ -83,7 +83,7 @@ if ($row != false){
     setcookie('user', $email);
   }
 
-  data[0]['stat'] = 'good';
+  $data += array('stat' => 'good');
 }
 
 

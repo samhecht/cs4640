@@ -6,6 +6,7 @@ import { FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 
 
+
 import { AppComponent } from './app.component';
 // import { UserMoviesComponent } from './user-movies/user-movies.component';
 import { SignupComponent } from './signup/signup.component';
@@ -19,9 +20,12 @@ import { SignupComponent } from './signup/signup.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }

@@ -1,5 +1,7 @@
+// johnny choi and sammy hecht signup component
 import { Component, OnInit } from '@angular/core';
 import { Signup } from '../signup';
+
 // import { SignupService } from '../SignupService';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -26,6 +28,7 @@ export class SignupComponent implements OnInit {
   signupModel = new Signup('', '', '', '');
   responsedata = 'response data';
 
+
   constructor(private http: HttpClient) {
     // private formBuilder: FormBuilder
   }
@@ -47,7 +50,9 @@ export class SignupComponent implements OnInit {
      this.http.post<string>('http://localhost/cs4640/cs4640/backend/ngphp-post.php', params)
      .subscribe((data) => {
         console.log('Got data from backend', data);
-        this.responsedata = data;
+        this.responsedata = JSON.parse(data).content.stat;
+
+
      }, (error) => {
         console.log('Error', error);
      })

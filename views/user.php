@@ -131,28 +131,36 @@
       }
 
       // get user id
-      $id_prepare = "SELECT from user WHERE username = :user";
+      $id_prepare = "SELECT * from user WHERE username = :user";
       $id_ex = $db->prepare($id_prepare);
-      $id_ex->bindValue(':user', $_COOKIE['user']);
+      $usrname = $_COOKIE['user'];
+      $id_ex->bindValue(':user', $usrname);
+
       $id_ex->execute();
 
       $user_row = $id_ex->fetch(PDO::FETCH_ASSOC);
-      $user_id = $user_row['id'];
-      
+
+
+
       $id_ex->closeCursor();
 
-      $movie_prepare = "SELECT from user_movie WHERE user_id = :uid";
+
+      $user_id = $user_row['id'];
+      echo $user_id;
+      $movie_prepare = "SELECT * from user_movie WHERE user_id = :uid";
       $movie_ex = $db->prepare($movie_prepare);
-      $movie_ex->bindValue(':uid', $user_id);
+
+      $movie_ex->bindValue(':uid', $user_id, PDO::PARAM_INT);
       $movie_ex->execute();
 
 
 
-      $rows = $id_ex->fetchAll();
+      $rows = $id_ex->fetchAll(PDO::FETCH_ASSOC);
       $id_ex->closeCursor();
       // save every movie id
-      foreach($rows as $key => $movieNum){
-        array_push($movies, $movieNum);
+      foreach($rows as $rowy){
+        echo "cool";
+        array_push($movies, $rowy['movie_name']);
       }
 
 
