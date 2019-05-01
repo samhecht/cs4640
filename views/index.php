@@ -112,10 +112,15 @@
                 <label class="sr-only" for="pwd" >Password:</label>
                 <input name="pwd" type="password" class="form-control" id="pwd" placeholder="Password">
               </div>
-    <!--          <button type="button" class="btn btn-sm btn-primary login-button" id="login-submit">Submit</button>-->
               <input type="hidden" name="login-flag" id="login-flag" value="false"/>
               <input type="submit" name="submit" id="login-submit" value="Login"/>
-              <input onclick="localhost:4200" type="submit" class="button_active" name="signup" id="signup-submit" value="Signup"/>
+
+              
+              <form action="http://localhost:4200">
+                <input type="submit" value="Register"/>
+              </form>
+              <input onclick="location.href='http://localhost:4200';" type="button" class="button_active" name="signup" id="signup-submit" value="Signup"/>
+
               </form>
               <div>
                   <p id="login-error" style="color: red;"></p>
@@ -132,20 +137,20 @@
                 }
               }
 
-          } else {
-            // if user has been set, welcome them
-            $user = $_COOKIE['user'];
-            echo "<li class='nav-item'>
-              <p class='nav-link' style='color: white;'>Welcome $user</p>
-            </li>
-            <!-- try to get logout working first -->
-            <form id='logout_form' onsubmit='logoutUser()' method='POST' action='index.php'>
-              <input type='hidden' name='logout-flag' id='logout-flag' value='false'/>
-              <input type='submit' name='logout' id='logout-submit' value='Logout'/>
-            </form>
-            ";
-          }
-         ?>
+              } else {
+                // if user has been set, welcome them
+                $user = $_COOKIE['user'];
+                echo "<li class='nav-item'>
+                  <p class='nav-link' style='color: white;'>Welcome $user</p>
+                </li>
+                <!-- try to get logout working first -->
+                <form id='logout_form' onsubmit='logoutUser()' method='POST' action='index.php'>
+                  <input type='hidden' name='logout-flag' id='logout-flag' value='false'/>
+                  <input type='submit' name='logout' id='logout-submit' value='Logout'/>
+                </form>
+                ";
+              }
+             ?>
 
         </nav>
       </header>
@@ -174,11 +179,11 @@
             $hostname = 'localhost:3306';
 
             // database name
-            $dbname = 'sammyH';
+            $dbname = 'jc2ar';
 
             // database credentials
-            $username = 'sammyH';
-            $password = 'db-pass';
+            $username = 'jc2ar';
+            $password = 'Coffeeandcigs6$';
             $dsn = "mysql:host=$hostname;dbname=$dbname";
 
             try

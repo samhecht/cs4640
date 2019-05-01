@@ -8,11 +8,11 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 $hostname = 'localhost:3306';
 
 // database name
-$dbname = 'sammyH';
+$dbname = 'jc2ar';
 
 // database credentials
-$username = 'sammyH';
-$password = 'db-pass';
+$username = 'jc2ar';
+$password = 'Coffeeandcigs6$';
 $dsn = "mysql:host=$hostname;dbname=$dbname";
 
 try
