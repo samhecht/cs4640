@@ -56,6 +56,7 @@ export class SignupComponent implements OnInit {
 
      }, (error) => {
        document.getElementById('resp-text').innerHTML = "Error signing up, try another email.";
+       document.getElementById('resp-text').style.color = 'red';
         console.log('Error', error);
      })
   }

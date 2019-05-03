@@ -54,7 +54,7 @@ $pwd = $data[0]['password'];
 
 
 // make sure email isn't taken already
-$query_prep = "SELECT from user WHERE username = :user";
+$query_prep = "SELECT * from user WHERE username = :user";
 $query = $db->prepare($query_prep);
 $query->bindValue(':user', $email);
 $query->execute();
