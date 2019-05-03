@@ -8,7 +8,7 @@
     <input required #firstName="ngModel"
            [class.is-invalid]="name?.invalid"
            [(ngModel)]="signupModel.firstName" type="text" class="form-control" name="firstName">
-    <small class="text-danger" [class.d-none]="firstName?.valid || firstName?.untouched">First Name is requried</small>
+    <small class="text-danger" [class.d-none]="firstName?.valid || !firstName?.untouched">First Name is required</small>
   </div>
 
   <div class="form-group">
@@ -16,7 +16,7 @@
     <input required #lastName="ngModel"
            [class.is-invalid]="name?.invalid"
            [(ngModel)]="signupModel.lastName" type="text" class="form-control" name="lastName">
-    <small class="text-danger" [class.d-none]="lastName?.valid || lastName?.untouched">Last Name is requried</small>
+    <small class="text-danger" [class.d-none]="lastName?.valid || !lastName?.untouched">Last Name is required</small>
   </div>
 
   <div class="form-group">
@@ -43,7 +43,7 @@
   </div>
 
   <small id="resp-text" class="text-success" style="margin-left: 20%;" ></small>
-  
+
   <button class="btn btn-primary" style="margin-left:20%;">Sign Up</button>
   <!-- (click)="senddata(signupForm.values)" -->
 </form>

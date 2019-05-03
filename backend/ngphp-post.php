@@ -77,11 +77,9 @@ if ($row != false){
   $insert->closeCursor();
 
   // set user cookie to sign them in
-  if (!isset($_COOKIE['user'])){
-    setcookie('user', $email, time() + (86000 * 5), '/');
-  } else {
-    setcookie('user', $email);
-  }
+
+  setcookie('user', $email, time() + (86000 * 5), '/');
+
 
   $data += array('stat' => 'good');
 }
