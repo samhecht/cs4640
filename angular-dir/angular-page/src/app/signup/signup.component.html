@@ -38,13 +38,15 @@
         #password="ngModel"
         [class.is-invalid]="password?.invalid"
         [(ngModel)]="signupModel.password"  name="password">
-    <small class="text-danger" *ngIf="password?.untouched">Password is required</small>
+    <small class="text-danger" *ngIf="password?.untouched && password?.invalid">Password is required</small>
     <small class="text-success" *ngIf="password?.valid">Password entered.</small>
   </div>
 
-  <!-- removed signupForm.values -->
+  <small id="resp-text" class="text-success" style="margin-left: 20%;" ></small>
+  
   <button class="btn btn-primary" style="margin-left:20%;">Sign Up</button>
   <!-- (click)="senddata(signupForm.values)" -->
 </form>
 <small class="text-success" *ngIf="responsedata === 'good'">Sucessfully signed up</small>
+
 <a href="http://localhost/cs4640/cs4640/views/index.php" style="margin-left: 20%;">go back to the home site</a>

@@ -50,10 +50,12 @@ export class SignupComponent implements OnInit {
      this.http.post<string>('http://localhost/cs4640/cs4640/backend/ngphp-post.php', params)
      .subscribe((data) => {
         console.log('Got data from backend', data);
-        this.responsedata = JSON.parse(data).content.stat;
+        //this.responsedata = JSON.parse(data).content.stat;
 
+        document.getElementById('resp-text').innerHTML = "Thank you, you succesfully signed up.";
 
      }, (error) => {
+       document.getElementById('resp-text').innerHTML = "Error signing up, try another email.";
         console.log('Error', error);
      })
   }
